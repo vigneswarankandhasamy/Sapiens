@@ -58,6 +58,7 @@ if (isset($_SESSION['user_session_id'])) {
 		//echo"<script>window.location='".BASEPATH."'</script>";
 		header("location: ".BASEPATH."cartdetails/details",  true,  301 );  
 	    exit;
+
 	}
 	//Payment is captured, do whatever else you need to do
 	// Mark order as done using the submitted hidden field
