@@ -1,0 +1,12 @@
+Options -MultiViews
+RewriteEngine On
+
+RewriteBase /ecom_hire/
+
+RewriteCond %{REQUEST_FILE} !-d
+RewriteCond %{REQUEST_FILE} !-d
+
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

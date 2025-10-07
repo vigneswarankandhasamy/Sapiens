@@ -1,0 +1,42 @@
+/* Custom CSS   */
+
+/*------------------------------------
+		Common Styles
+------------------------------------*/
+
+.display_none {
+	display: none;
+}
+.error {
+	color: #e85347;
+    font-size: 11px;
+    font-style: italic;
+}
+/*-----------------------------------
+ 		Index Page inline css
+-----------------------------------*/
+
+.export_enq_model_date_input_icon 
+{
+	top: 18px !important;
+}
+
+/*------------------------------------
+		Enquiry list page css
+------------------------------------*/
+
+.form_from_to_error {
+	color: #e85347;
+	font-size: 11px;
+	font-style: italic;
+}
+.todata_error {
+	margin-left: 18px;
+}
+
+.enquiry_list_dropdown {
+	width: 110px;
+}
+.logo-img-xl {
+    max-height: 100px !important;
+}

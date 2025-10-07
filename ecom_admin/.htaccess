@@ -1,0 +1,10 @@
+Options -MultiViews
+RewriteEngine On
+
+RewriteBase /venpep/zupply_ecom/ecom_admin/
+
+RewriteCond %{REQUEST_FILE} !-d
+RewriteCond %{REQUEST_FILE} !-d
+
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

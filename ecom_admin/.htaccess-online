@@ -1,0 +1,14 @@
+Options -MultiViews
+RewriteEngine On
+
+
+RewriteCond %{REQUEST_FILE} !-d
+RewriteCond %{REQUEST_FILE} !-d
+
+# Allow Robots.txt to pass through
+RewriteRule ^robots.txt - [L]    
+
+# Allow sitemap.xml to pass through
+RewriteRule ^sitemap.xml - [L]    
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

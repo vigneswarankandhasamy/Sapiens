@@ -1,0 +1,277 @@
+/* Custom CSS */
+.error {
+	color: #e85347;
+    font-size: 11px;
+    font-style: italic;
+}
+
+/* Header css */
+
+.hdeader_nav_bar {
+	width: 1350px;
+    height: 65px;
+}
+
+/* Manage Analytics Page Inline CSS*/
+
+.paragraphList {
+	margin-left: 16px;
+}
+
+.gdpr_banner_top {
+	margin-top: 10px;
+}
+
+.cursor_pointer {
+	cursor: pointer !important;
+}
+
+/* Customer order page function inline css */
+
+.status_list {
+	display: flex;
+}
+
+/* Vendor order payout function inline css */
+
+.payout_list_invoiceid_column {
+	width: 148px;
+}
+
+.payout_list_action_invoice_btn {
+	height: 30px;
+	width: 46px;
+}
+
+/* manage shipping and delivery function inline css */
+
+.manage_shipping_state_checkbox {
+	left: 25px !important;
+	top: 20px !important;
+}
+
+.state_accordion_list {
+	bottom: 15px;
+	padding-left: 55px;
+	padding-bottom: 0px;
+}
+
+.city_accordion_list {
+	left: 45px;
+	top: 20px;
+}
+
+.inner_block {
+	margin-left: 20px !important;
+}
+
+/* Permission Main Menu function inline css */
+
+.permission_menu {
+	margin-left: 25px;
+}
+
+/* Contractor list page inline css*/
+
+.name_column {
+	width: 138px;
+}
+
+.contact_column {
+	width: 228px;
+}
+
+.sent_invite_column {
+	width: 118px;
+}
+.visiblity_column {
+	width: 108px;
+}
+
+
+/* Add/Edit couopn page inline css */
+.input_top_margin {
+	top: 18px;
+}
+
+
+/* Manage Customer page inline css*/
+
+.date_of_reg_column {
+	width: 108px;
+}
+
+.total_orders_column {
+	width: 90px;
+}
+
+.total_value_column {
+	width: 90px;
+}
+
+/* Order Repors page inline css*/
+
+.date_error_style {
+	color: #e85347;
+	font-size: 11px;
+	font-style: italic;
+}
+.todate_error {
+	margin-left: 18px;
+}
+
+/* Add Edit Vendor page */
+
+.location_menu {
+	margin-left: 35px;
+}
+
+
+.location_menu {
+	margin-left: 35px;
+}
+
+/* vendor Details page inline css*/
+
+.dot_display_none:hover .dropdown {
+	display: none !important;
+}
+
+.send_invite_btn {
+	margin-right: 20px;
+}
+
+.profileVerified{
+	margin-right: 5px;
+	margin-left: 20px;
+}
+/* vendor payout page inline css*/
+
+.payout_invoice_column {
+	width: 158px;
+
+}
+
+/* vendor payouthistroy page inline css*/
+
+.payout_histroy_invoice_column {
+	width: 158px;
+
+}
+
+.sellect_vendor_drp {
+	width: 150px
+}
+
+/* Vendor report page inline css */
+
+.vendor_select_drop {
+	left: 25px;
+}
+
+/*Enquiry Model detaisl css*/
+.enq_name_field {
+    width: 300px;
+}
+.enq_name_align {
+    text-align: left !important;
+}
+.enq_readed_msg {
+    background-color: #f3f2f1;
+}
+
+/* Description Table td width */
+
+.description_column {
+    width: 400px;
+}
+
+/* Dashboard CSS */
+
+.title.filter_date_title {
+    font-size: smaller;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Payouthistory Paga*/
+
+.special_tbl_td_hover:hover  {
+	 background: #f8f9fc !important;
+}
+
+/*Review List page*/
+
+.model_pt {
+	padding-top: 15px;
+}
+.nk_block_pt {
+	padding-top: 15px !important;
+}
+
+/*--------------------------------
+	 	Index Page CSS
+---------------------------------*/
+
+/*---Notification Badges----*/
+
+
+.notification .badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  border-radius: 200%;
+  background: #798bff;
+  color: white;
+}
+
+.notification_td {
+	cursor: pointer !important; 
+}
+
+.open_enq_model {
+    cursor: pointer !important; 
+}
+
+.viewall_link a{
+    font-size: smaller;
+    font-weight: 500;
+}
+
+/*Relpace Order Page*/
+
+.same_vendor_price_details {
+	margin-top: 15px !important;
+}
+
+.display_flex {
+	display: flex !important;
+}
+
+.float-end {
+	float: right !important;
+}
+
+.logo-img-xl {
+    max-height: 100px !important;
+}
+
+.star_tbl_list {
+  display: flex;
+}
+
+.star_rating_point {
+	margin-left: 5px;
+}
+
+.sold_by_info {
+	margin-right: 10px !important;
+}
+.mapped_locations {
+	margin-top: 10px;
+	display: inline-flex;
+}
+
+
+
+

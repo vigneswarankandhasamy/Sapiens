@@ -1,0 +1,114 @@
+/* COmmon CSS*/
+
+.cursor_pointer {
+	cursor: pointer;
+}
+
+
+/*Permision data master function inline css */
+
+.permission_menu {
+	margin-left: 25px;
+}
+
+/* Product Variants function inline css*/
+
+.product_variants_link {
+	margin-left: 20px;
+}
+
+/* Vendor delivery location function inline css*/
+
+.location_menu {
+	margin-left: 35px;
+}
+
+/* Vendor assign category page inline css */
+
+.assigncategory_from_error {
+	margin-top: 10px;
+}
+
+/* Vendor payout page inline css*/
+
+.payout_from_error {
+	color: #e85347; font-size: 11px;font-style: italic;
+}
+.todate_error {
+	margin-left: 18px;
+}
+
+/* Dashboard CSS */
+
+.title.filter_date_title {
+    font-size: smaller;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Order notification details page */
+
+.response_reject_notes {
+	margin-top: 20px !important;
+}
+
+.status_list {
+  display: flex;
+}
+
+
+/* Enquiry Pop-up text align */
+
+.enq_name_field {
+    width: 300px;
+}
+.enq_name_align {
+    text-align: left !important;
+}
+.enq_readed_msg {
+    background-color: #f3f2f1;
+}
+
+/*--------------------------------
+        Index Page CSS
+---------------------------------*/
+
+/*---Notification Badges----*/
+
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  border-radius: 200%;
+  background: #798bff;
+  color: white;
+}
+.notification_td {
+  cursor: pointer !important; 
+}
+
+.viewall_link a{
+    font-size: smaller;
+    font-weight: 500;
+}
+.logo-img-xl {
+    max-height: 100px !important;
+}
+
+.star_tbl_list {
+  display: flex;
+}
+
+.star_rating_point {
+  margin-left: 5px;
+}
+
+.sold_by_info {
+  margin-right: 10px !important;
+}
+
+.hdeader_nav_bar {
+    width: 1350px;
+    height: 65px;
+}

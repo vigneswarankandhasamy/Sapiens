@@ -1,0 +1,4 @@
+RewriteEngine Off
+Options -Indexes
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost/venpep/shanthi_crm/ [NC] 
+RewriteRule \.(jpe?g|gif|bmp|png)$ - [F,NC]

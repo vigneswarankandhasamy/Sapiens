@@ -1,0 +1,236 @@
+.float_left {
+  float: left !important;
+}
+
+.display_float {
+  display: flex;
+}
+
+.display_flex {
+	display: flex !important;
+}
+
+.breadcrumb_active {
+	color: #99277e;
+	font-size: initial !important;
+}
+
+.brand_list_checkbox {
+	width: 15px;
+	height: 12px;
+	margin-right: 5px;
+}
+
+.brand_list_label {
+	font-size: 14px;
+    color: var(--theme-dark);
+}
+
+.brands_filter_btn {
+	 height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    text-transform: capitalize;
+    color: #ffffff;
+    background: #442f6a;
+    border: 0;
+    border-radius: 30px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    float: right;
+}
+.brand_lists {
+    margin-bottom: 8px;
+}
+
+.ml-15 {
+    margin-left: 15px;
+}
+
+
+.approx_value {
+  font-size: 14px;
+  font-style: italic;
+  line-height: 23px;
+  margin: 20px 0 0 0;
+  text-align: right;
+}
+
+ul.dropdown-menu.dropdown-menu-end.shareproductdetails.share_links{
+    transform: translate(-100px, 50px)!important;
+    overflow: hidden;
+}
+
+.menu_items.select_pincode {
+    text-align: left;
+}
+
+.pincode_lable {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    color: #99277e;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.input-group{
+  display: table;
+  border-collapse: collapse;
+  width:100%;
+
+}
+
+.input-group > div{
+  display: table-cell;
+  border: 1px solid #ddd;
+  vertical-align: middle;  
+}
+
+.input-group-icon{
+  background:#eee;
+  color: #777;
+  padding: 0 12px;
+}
+
+.input-group-area{
+  width:100%;
+}
+
+.input-group input{
+  border: 0;
+  display: block;
+  width: 100%;
+  /*padding: 8px;*/
+}
+
+.myorder_search_input {
+  height: 34.22222px !important;
+}
+
+.myorder_search_btn a {
+    background: #442f6a;
+    border: 0;
+    color: #fff;
+    height: 32px;
+    font-size: 12px;
+    padding-top: 6px;
+    text-transform: capitalize;
+    font-weight: 600;
+    border-radius: 15px;
+}
+.myorder_search_or {
+  margin-top: 6px!important;
+  margin-bottom: 0px!important;
+}
+.search_order_id_input {
+  /*text-transform: uppercase;*/
+  font-weight: 400;
+  width: 219px !important;
+}
+
+.order_search_btn {
+  margin-left: 30px!important;
+}
+.admin_replay_box_myorder {
+  width: 600px !important;
+  margin-top: 15px; 
+}
+.reviwe_publish_msg {
+  font-weight: 400;
+  font-size: medium;
+}
+
+a.breadcrumb_active {
+    color: #99277E !important;
+}
+/*.login_links a {
+  overflow: auto !important;
+}*/
+
+.login_links a {
+  text-decoration: none !important;
+}
+
+.login_links a:hover {
+  text-decoration: underline !important;
+}
+
+/* Hearder Menu  Custome CSS */ 
+
+.header_area .logo {
+    padding-right: 15px !important;
+}
+
+.shop_menu_toggle {
+  width: 200px;
+}
+
+.hire_menu_toggle {
+  width: 182px !important;
+}
+.vendor_rating_title {
+  margin-top: 20px !important;
+  padding-bottom: 0px !important;
+}
+.display_tag{
+  background: #E6388D !important;
+}
+#searchLocations {
+  position: relative;
+}
+#location_pincode_list {
+  left: 0;
+  right: 0;
+  width: auto;
+  top: 50px;
+  overflow-y: scroll;
+  height: auto;
+  max-height: 150px;
+  border-radius: 0 0 8px 8px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+}
+#location_pincode_list::-webkit-scrollbar-thumb {
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;  
+}
+.main_menu .categories_menu_toggle {
+  -webkit-animation: _1OMYGl .3s ease forwards;
+  animation: _1OMYGl .3s ease forwards;
+  border-radius: 3px;
+  box-shadow: 0 4px 16px 0 rgb(0 0 0 / 20%);
+}
+.categories_menu_toggle>ul>li:hover ul.categories_mega_menu{
+  -webkit-animation: _1OMYGl .3s ease forwards;
+  animation: _1OMYGl .3s ease forwards;
+  border-radius: 3px;
+  box-shadow: 0 4px 16px 0 rgb(0 0 0 / 20%);
+}
+h2.myorder_search_or{
+  text-align: center;
+  font-size: 16px;
+  padding-bottom: 0px;
+}
+.myorder_search_btn button{
+  padding: 5px 20px;
+  line-height: 22px;
+  height: auto !important;
+}
+
+/* Product Details Page Custome css*/
+.vendor_rating_section {
+  margin-top: 15px;
+}
+
+.vendor_star_rating {
+  float: left;
+  margin-bottom: 15px;
+}
+
+.admin_replay_msg_box.comment_text {
+    margin-top: 21px;
+    margin-left: 3px;
+}

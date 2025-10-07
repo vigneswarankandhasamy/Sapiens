@@ -1,0 +1,808 @@
+/*!
+ Custom CSS 
+**/
+
+
+/*
+========================
+  Page Loading 
+========================
+*/
+
+
+.page_loading {
+    margin: 0px auto;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10000;
+    top: 0px;
+    background: rgba(46, 60, 84, 0.6);
+    display: none;
+}
+
+.overlay {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.loading_image {
+    background: rgba(255, 255, 255, 1);
+    width: 250px;
+    height: 250px;
+    position: fixed;
+    top: 33%;
+    left: 41%;
+    z-index: 11;
+    border-radius: 20px;
+}
+
+.load_img {
+    text-align: center;
+    margin-top: 0px;
+    font-size: 16px;
+}
+
+.load_img img {
+    width: auto;
+    overflow: hidden;
+    margin: 45px auto 0 auto;
+}
+
+.load_text {
+    text-align: center;
+    margin: 0px 0 18px 0;
+    font-size: 18px;
+    position: absolute;
+    font-weight: bold;
+    bottom: 10px;
+    width: 100%;
+}
+
+@media (max-width: 748px) {
+    .loading_image {
+        background: #FFF;
+        width: 180px;
+        height: 180px;
+        position: fixed;
+        top: 33%;
+        left: 27%;
+        z-index: 11;
+        border-radius: 10px;
+    }
+
+    .load_img img {
+        width: 55%;
+        overflow: hidden;
+        margin: 25px auto 0 auto;
+    }
+
+    .load_text {
+        text-align: center;
+        margin-top: 0px;
+        font-size: 14px;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+    }
+}
+
+/*------- GENERAL --------*/
+
+en {
+    color: red;
+}
+
+.err {
+    color: #5d5d5d;
+    border-color: #5d5d5d !important;
+}
+
+.form-label em {
+    color: red;
+}
+
+.custom-file-label em {
+    color: red !important;
+}
+
+.help_text {
+    font-size: 12px;
+    font-style: italic;
+    opacity: 0.7;
+    margin: 10px 0 0 0;
+}
+
+.select_item_wrap {
+    position: relative;
+}
+
+.select_item_wrap .error {
+    position: absolute;
+    bottom: -35px;
+}
+
+.draft_item {
+    background: #fbfbfc;
+}
+
+.table_middle th {
+    vertical-align: middle !important;
+}
+
+.table_middle td {
+    vertical-align: middle !important;
+}
+
+.table_middle .custom-control {
+    vertical-align: middle;
+}
+
+.no_display {
+    display: none;
+}
+
+.card-title {
+    font-size: 19px;
+}
+
+/*------- FORM Panel CSS --------*/
+
+
+.form_panel_overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(31, 43, 58, 0.2);
+    z-index: 801;
+    animation: overlay-fade-in .4s ease 1;
+    display: none;
+}
+
+.form_panel_warp {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40%;
+    max-width: calc(100vw - 40px);
+    max-height: 100vh;
+    height: 100vh;
+    z-index: 802;
+    background-color: #fff;
+    box-shadow: 0 3px 12px 1px rgba(43, 55, 72, 0.15);
+    padding: 0 0 1.5rem;
+    display: none;
+    -webkit-animation: slide 0.5s forwards;
+    /* -webkit-animation-delay: 2s;*/
+    animation: slide 100.5s forwards;
+
+}
+
+.form_panel_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e5e9f2;
+    padding: 15px 2rem 13px;
+}
+
+.form_panel_content {
+    background: #fff;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    /*overflow: hidden scroll;*/
+    padding: 15px 2rem 13px;
+}
+
+.form_panel_footer {
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    text-align: right;
+    bottom: 0;
+    right: 0;
+    border-top: 1px solid #e5e9f2;
+    padding: 15px 2rem 13px;
+}
+
+/*------- Settings Left menu --------*/
+
+.left_menu {
+    border-right: 1px solid #ccc;
+}
+
+.left_menu li:first-child {
+    margin-top: 0;
+}
+
+.left_menu li {
+    margin: 5px -1px 5px 0;
+}
+
+.left_menu li a {
+    padding: 7px 10px 7px 20px;
+    display: block;
+    color: inherit;
+
+    border-radius: 5px 0 0 5px;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    transition: none;
+}
+
+.left_menu li a:hover {
+    border-radius: 5px 0 0 5px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #f5f6fa;
+
+}
+
+.left_menu li a.active {
+    border-radius: 5px 0 0 5px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #f5f6fa;
+    font-weight: 600;
+}
+
+.settings_section_wrap {
+    margin: 0 0 25px 0;
+}
+
+/*------- Auto complete CSS --------*/
+
+.autocomplete_item {
+    display: block;
+    position: relative;
+}
+
+.autocomplete_item .dropdown-menu {
+    width: 100%;
+}
+
+.autocomplete_item .dropdown-menu li.dropdown-header {
+    padding: 10px;
+    color: #8091a7;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.autocomplete_item .dropdown-menu li a {
+    display: block;
+    padding: 7px 15px;
+    color: #526484;
+    font-size: 14px;
+}
+
+.autocomplete_item .dropdown-menu li a:hover {
+    background: #e5ecf5;
+}
+
+/*-------- Setting Blocks --------*/
+
+.settings_block {
+    margin: 0 0 28px 0;
+}
+
+
+.settings_block a {
+    /*background: #eaecf1;*/
+    background: #fff;
+    display: block;
+    color: inherit;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px 0px rgba(54, 74, 99, 0.09);
+    transition: box-shadow .2s linear, border-color .2s linear, background-color .2s linear;
+    height: 100px;
+}
+
+.settings_block a:hover {
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.08) inset;
+    transition: box-shadow .2s linear, border-color .2s linear, background-color .2s linear;
+}
+
+.settings_block a:hover>.icon h1 em {
+    opacity: 1;
+    color: #364a63;
+}
+
+.settings_block a:hover>.content h2 {
+    color: #6576ff;
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.settings_block a .icon {
+    width: 30%;
+    float: left;
+}
+
+.settings_block a .icon h1 em {
+    opacity: 1;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    line-height: 95px;
+    font-size: 1em;
+    color: #ccd3e5;
+
+}
+
+.settings_block a .content {
+    width: 70%;
+    float: left;
+    padding: 15px 15px 15px 0;
+}
+
+.settings_block a .content h2 {
+    font-size: 1.3em;
+    opacity: 0.9;
+}
+
+.settings_block a .content p {
+    opacity: 0.7;
+    line-height: 20px;
+}
+
+
+/*-------- Submit Bar --------*/
+
+.form_submit_bar {
+    background: rgba(255, 255, 255, 0.99);
+    /* background: #d7f1d6;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 65px;
+    z-index: 801;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.08) inset;
+}
+
+.form_submit_bar h3 {
+    font-size: 21px;
+    line-height: 44px;
+    float: left;
+    margin: 0;
+}
+
+.form_submit_bar h2 {
+    line-height: 48px;
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.form_submit_bar h2 a {
+    font-size: 0.7em;
+    color: inherit;
+    display: block;
+}
+
+.form_submit_bar p {
+    float: right;
+    line-height: 45px;
+    margin: 0;
+}
+
+.form_submit_bar label {
+    margin: 0 15px 0 0;
+}
+
+.form_submit_bar .submit_button_wrap {
+    text-align: right;
+    line-height: 45px;
+}
+
+/*-------- Permission Checkbox --------*/
+
+.permission_parent {
+    width: 48%;
+    float: left;
+    display: table-row;
+    margin: 5px 10px 5px 0;
+}
+
+.permission_parent .heading {
+    font-weight: 600;
+}
+
+.permission_parent .menu ul li {
+    list-style-type: none;
+    display: inline-block;
+    width: 48%;
+}
+
+
+/*-------- Location Checkbox --------*/
+
+.location_parent {
+    width: 48%;
+    display: table-row;
+    margin: 5px 10px 5px 0;
+}
+
+.location_parent .heading {
+    font-weight: 600;
+}
+
+.location_parent .menu ul li {
+    list-style-type: none;
+    display: inline-block;
+    width: 20%;
+}
+
+/*form validation message*/
+.edit_email_settings label.error,
+.add_email_settings label.error {
+    margin-bottom: 0px;
+}
+
+/*order details table css*/
+.details tr th,
+.details tr td {
+    line-height: 20px;
+    padding: 10px 15px;
+    vertical-align: middle;
+}
+
+/*-------- Settings Header--------*/
+
+.settings_switch {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.settings_logo {
+    width: 150px;
+    margin: 0 0 15px 0;
+}
+
+/*-------- SEO Listing--------*/
+
+.seo_inputs {
+    display: none;
+}
+
+.seo_toggle {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.seo_preview {
+    margin: 0 0 25px 0;
+}
+
+.seo_preview h5 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 2px 0;
+    color: #1a0dab;
+}
+
+.seo_preview p {
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+    color: #006621;
+}
+
+.seo_preview h6 {
+    font-size: 15px;
+    font-weight: normal;
+    margin: 0;
+    color: #545454;
+    opacity: 0.8;
+}
+
+/*-------- Product Variants --------*/
+
+#variant_parent {
+    position: relative;
+}
+
+.variant_parent {
+    margin: 20px 0;
+
+}
+
+.card_actions {
+    position: absolute;
+    top: 7px;
+    right: 20px;
+    margin: 0;
+}
+
+#variant_option_edit {
+
+}
+
+#variant_options_preview_wrap {
+    margin: 10px 0;
+}
+
+.variant_child {
+    
+}
+
+#variant_list_body p {
+    margin: 0;
+}
+
+/*------- Product Images --------*/
+
+.previous_images_wrap {
+    margin: 0 0 15px 0;
+}
+
+.image_list {
+    width: 140px;
+    height: 140px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+.image_list.default_image {
+     border: 1px solid green;
+}
+
+.image_actions {
+    background: rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.image_list:hover {
+    border: 1px solid #ccc;
+}
+
+.image_list:hover>.image_actions {
+    display: block;
+}
+
+.image_actions h6 {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #fff;
+    z-index: 10;
+    font-size: 1.52em;
+}
+
+.image_list h5 {
+    font-size: 14px;
+    width: 100%;
+    font-weight: normal;
+    line-height: 18px;
+    padding: 5px;
+    background: rgba(0,0,0,0.6);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 0 10px 10px;
+    color: #fff;
+}
+
+.image_actions p {
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.image_actions p a {
+    display: inline-block;
+    color: #fff;
+}
+
+.image_check_box {
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    top: 0px;
+    left: 0;
+    padding: 5px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+
+/*------- Product Image Pop Up --------*/
+
+
+.image_viewer_overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(31, 43, 58, 0.7);
+    z-index: 801;
+    animation: overlay-fade-in .4s ease 1;
+    display: none;
+}
+
+.image_viewer_wrap {
+    position: fixed;
+    right: 10%;
+    top: 0%;
+    width: 80%;
+    max-width: calc(100vw - 40px);
+    max-height: auto;
+    height: 100vh;
+    z-index: 802;
+    background-color: #fff;
+    box-shadow: 0 3px 12px 1px rgba(43, 55, 72, 0.15);
+    padding: 0 0 1.5rem;
+    display: none;
+    -webkit-animation: slide 0.5s forwards;
+    /* -webkit-animation-delay: 2s;*/
+    animation: slide 100.5s forwards;
+}
+
+.image_viewer_wrap img {
+    width: 100%;
+}
+
+.image_viewer_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e5e9f2;
+    padding: 15px 2rem 13px;
+}
+
+.image_viewer_content {
+    background: #fff;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    /*overflow: hidden scroll;*/
+    padding: 15px 2rem 13px;
+}
+
+.image_preview p {
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+.image_viewer_footer {
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    text-align: right;
+    bottom: 0;
+    right: 0;
+    border-top: 1px solid #e5e9f2;
+    padding: 15px;
+}
+
+
+
+/*------- Variant Product Image Selection Pop Up --------*/
+
+
+.variant_image_viewer_overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(31, 43, 58, 0.7);
+    z-index: 801;
+    animation: overlay-fade-in .4s ease 1;
+    display: none;
+}
+
+.variant_image_viewer_wrap {
+    position: fixed;
+    right: 10%;
+    top: 5%;
+    width: 80%;
+    max-width: calc(100vw - 40px);
+    max-height: 90vh;
+    height: 100vh;
+    z-index: 802;
+    background-color: #fff;
+    box-shadow: 0 3px 12px 1px rgba(43, 55, 72, 0.15);
+    padding: 0 0 1.5rem;
+    display: none;
+    -webkit-animation: slide 0.5s forwards;
+    /* -webkit-animation-delay: 2s;*/
+    animation: slide 100.5s forwards;
+}
+
+.variant_image_viewer_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e5e9f2;
+    padding: 15px 2rem 13px;
+}
+
+.variant_image_viewer_content {
+    background: #fff;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    /*overflow: hidden scroll;*/
+    padding: 15px 2rem 13px;
+}
+
+.variant_image_viewer_footer {
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    text-align: right;
+    bottom: 0;
+    right: 0;
+    border-top: 1px solid #e5e9f2;
+    padding: 15px;
+}
+div .chart_amt{
+    width: 180px;
+}
+
+ul.breadcrumb.breadcrumb-arrow.filter_content {
+    font-size: initial;
+    margin-bottom: 10px;
+}
+ul.breadcrumb.breadcrumb-arrow.filter_content li {
+    margin-right: 10px;
+    font-size: initial;
+}
+
+.display_none {
+    display: none !important;
+}
+
+.request_desc_width
+{
+    width: 380px;
+}
+
+/* Description Table td width */
+
+.description_column {
+    width: 400px;
+}
+
+
+
+
