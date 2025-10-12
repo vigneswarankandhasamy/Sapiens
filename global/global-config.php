@@ -6,7 +6,7 @@
 
 	
 	// Company Path
-	define('COMPANY_NAME', 'Zupply');
+	define('COMPANY_NAME', 'Sapiens');
 	// Domain Name
 	define('DOMAIN', '');
 	// Admin Folder
@@ -26,11 +26,11 @@
 	//--------------------- EMAIL SETTINGS --------------------//
 
 	// Admin Mail Address
-	define('ADMIN_EMAIL', 'admin@zupply.com');
+	define('ADMIN_EMAIL', 'admin@Sapiens.com');
 	// No Reply Mail Address
-	define('NO_REPLY', 'no-reply@zupply.com');
+	define('NO_REPLY', 'no-reply@Sapiens.com');
 	// Reply to Mail Address
-	define('REPLY_TO', 'info@zupply.com');
+	define('REPLY_TO', 'info@Sapiens.com');
 	// Email Footer Address
 	define('EMAIL_FOOTER', "".COMPANY_NAME."',Email:'".ADMIN_EMAIL." ");
 

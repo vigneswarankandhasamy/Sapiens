@@ -168,7 +168,7 @@
         <div class="notice" style="width: 735px;margin-left: 20px;">I
             <?php echo $data[ 'cus_info'][ 'name']; ?> confirm that the said products are being purchased for my internal/personal consumption and not for re-sale.</div>
     </div>
-    <div class="lable bottom_lab" style="padding-bottom: 15px;border-bottom: 1px solid #C1CED9;margin-top: 25px;margin-left: 25px;">Zupply Order Id :
+    <div class="lable bottom_lab" style="padding-bottom: 15px;border-bottom: 1px solid #C1CED9;margin-top: 25px;margin-left: 25px;">Sapiens Order Id :
         <?php echo $data[ 'order_info'][ 'order_uid'] ?>
     </div>
 

@@ -682,7 +682,7 @@ class Products extends Model
 							{
 								$vendor_id = $product_price['vendor_id'];
 							} else {
-								$vendor_id = "zupply";
+								$vendor_id = "Sapiens";
 							}
 
 							if(isset($_SESSION['user_session_id'])) {
@@ -874,7 +874,7 @@ class Products extends Model
 							{
 								$vendor_id = $product_price['vendor_id'];
 							} else {
-								$vendor_id = "zupply";
+								$vendor_id = "Sapiens";
 							}
 
 							if(isset($_SESSION['user_session_id'])) {
@@ -1449,7 +1449,7 @@ class Products extends Model
 						{
 							$vendor_id = $product_price['vendor_id'];
 						} else {
-							$vendor_id = "zupply";
+							$vendor_id = "Sapiens";
 						}
 
 						if(isset($_SESSION['user_session_id'])) {
@@ -1552,7 +1552,7 @@ class Products extends Model
 				$admin_replay = "
 								<div class='comment_text admin_replay_msg_box'>
 									<div class='reviews_meta '>
-										<p><strong>Zupply </strong>- ". date("F j, Y", strtotime($list['replay_at']))."</p>
+										<p><strong>Sapiens </strong>- ". date("F j, Y", strtotime($list['replay_at']))."</p>
 										<span>".$list['admin_replay'] ."</span>
 									</div>
 								</div>";
@@ -2151,7 +2151,7 @@ class Products extends Model
 			}
 			return $vendor_name;
 		} else {
-			$vendor_name['company'] ="Zupply";
+			$vendor_name['company'] ="Sapiens";
 			return $vendor_name;
 		}
 	}

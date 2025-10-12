@@ -76,12 +76,12 @@
                                 <h5 class="card-title">Vendor</h5>
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label class="form-label"> Zupply Commission
+                                            <label class="form-label"> Sapiens Commission
                                             </label>
-                                            <input type="text" name="vendor_commission" id="vendor_commission" value="<?php echo $data['info']['vendor_commission'] ?>" class="form-control" placeholder="Zupply Commission" >
+                                            <input type="text" name="vendor_commission" id="vendor_commission" value="<?php echo $data['info']['vendor_commission'] ?>" class="form-control" placeholder="Sapiens Commission" >
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="form-label">  Zupply Commission Tax
+                                            <label class="form-label">  Sapiens Commission Tax
                                                 
                                             </label>
                                              <select class="form-control form-control-lg" id="vendor_commission_tax" data-search="off" name="vendor_commission_tax" required>

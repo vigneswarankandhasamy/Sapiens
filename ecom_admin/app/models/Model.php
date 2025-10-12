@@ -1571,7 +1571,7 @@ class Model
 					<tr style="color: black;"> 
 						<td><h3>Tax invoice/Bill of Supply/Cash memo</h3>
 						Invoice Number: '.$order_item_info['vendor_invoice_number'].' / Date: '.date('d-m-Y', strtotime($order_info['created_at'])).'</td>
-						<td align="right">Zupply Order Id: '.$order_info['order_uid'].'</td>
+						<td align="right">Sapiens Order Id: '.$order_info['order_uid'].'</td>
 					</tr>
 				</tbody>
 			</table>
@@ -1671,7 +1671,7 @@ class Model
 					<tr style="color: black;"> 
 						<td><h3>Tax invoice/Bill of Supply/Cash memo</h3>
 						Invoice Number: '.$order_item_info['vendor_invoice_number'].' / Date: '.date('d-m-Y', strtotime($order_info['created_at'])).'</td>
-						<td align="right">Zupply Order Id: '.$order_info['order_uid'].'</td>
+						<td align="right">Sapiens Order Id: '.$order_info['order_uid'].'</td>
 					</tr>
 				</tbody>
 			</table>

@@ -397,7 +397,7 @@ class Cartdetails extends Controller
 				// case 'vendorInvoice':
 				// echo $user -> vendorInvoice(1,1);
 			 	// break;
-			  	// venpep/zupply_ecom/cartdetails/api/vendorInvoice
+			  	// venpep/sapiens_ecom/cartdetails/api/vendorInvoice
 
 				default:
 				break;

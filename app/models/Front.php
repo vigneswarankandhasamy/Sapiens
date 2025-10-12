@@ -648,7 +648,7 @@ class Front extends Model
 				{
 					$vendor_id = $product_price['vendor_id'];
 				} else {
-					$vendor_id = "zupply";
+					$vendor_id = "Sapiens";
 				}
 
 				
@@ -1036,7 +1036,7 @@ class Front extends Model
 				{
 					$vendor_id = $product_price['vendor_id'];
 				} else {
-					$vendor_id = "zupply";
+					$vendor_id = "Sapiens";
 				}
 
 				if($list['display_tag']!=0 && $list['display_tag_end_date'] && $list['tag_status']==1) {
@@ -1143,7 +1143,7 @@ class Front extends Model
 				{
 					$vendor_id = $product_price['vendor_id'];
 				} else {
-					$vendor_id = "zupply";
+					$vendor_id = "Sapiens";
 				}
 
 				if($list['display_tag']!=0 && $list['display_tag_end_date'] && $list['tag_status']==1) {
@@ -1257,7 +1257,7 @@ class Front extends Model
 				{
 					$vendor_id = $product_price['vendor_id'];
 				} else {
-					$vendor_id = "zupply";
+					$vendor_id = "Sapiens";
 				}
 
 				if($list['display_tag']!=0 && $list['display_tag_end_date'] && $list['tag_status']==1) {
@@ -1368,7 +1368,7 @@ class Front extends Model
 				{
 					$vendor_id = $product_price['vendor_id'];
 				} else {
-					$vendor_id = "zupply";
+					$vendor_id = "Sapiens";
 				}
 
 
@@ -1848,7 +1848,7 @@ class Front extends Model
 				{
 					$vendor_id = $product_price['vendor_id'];
 				} else {
-					$vendor_id = "zupply";
+					$vendor_id = "Sapiens";
 				}
 
 

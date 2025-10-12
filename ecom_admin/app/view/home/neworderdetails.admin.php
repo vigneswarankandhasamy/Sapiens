@@ -152,7 +152,7 @@
                                     <ul class="data-list is-compact">
                                         <li class="data-item">
                                             <div class="data-col">
-                                                <div class="data-label">Zupply Invoice Number</div>
+                                                <div class="data-label">Sapiens Invoice Number</div>
                                                 <div class="data-value"><?php echo $data['order_info']['order_uid']; ?></div>
                                             </div>
                                         </li>

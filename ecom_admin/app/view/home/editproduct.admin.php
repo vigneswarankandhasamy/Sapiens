@@ -548,7 +548,7 @@
                     <div class="col-md-6">
                         <h6>Select Default Image</h6>
                         <div id="variant_default_image_wrap">
-                            <div class="image_list" id="image_item_1" style="background-image: url(&quot;http://localhost/venpep/zupply_ecom/ecom_admin/resource/uploads/ultratech-super-cement-0-GPwIj.jpg&quot;); background-repeat: no-repeat; background-position: center top; background-size: cover;">
+                            <div class="image_list" id="image_item_1" style="background-image: url(&quot;http://localhost/venpep/sapiens_ecom/ecom_admin/resource/uploads/ultratech-super-cement-0-GPwIj.jpg&quot;); background-repeat: no-repeat; background-position: center top; background-size: cover;">
                                 <div class="image_check_box">
                                     <div class="custom-control-sm custom-radio">
                                         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
@@ -556,7 +556,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="image_list" id="image_item_1" style="background-image: url(&quot;http://localhost/venpep/zupply_ecom/ecom_admin/resource/uploads/ultratech-super-cement-0-GPwIj.jpg&quot;); background-repeat: no-repeat; background-position: center top; background-size: cover;">
+                            <div class="image_list" id="image_item_1" style="background-image: url(&quot;http://localhost/venpep/sapiens_ecom/ecom_admin/resource/uploads/ultratech-super-cement-0-GPwIj.jpg&quot;); background-repeat: no-repeat; background-position: center top; background-size: cover;">
                                 <div class="image_check_box">
                                     <div class="custom-control-sm custom-radio">
                                         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
@@ -564,7 +564,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="image_list" id="image_item_1" style="background-image: url(&quot;http://localhost/venpep/zupply_ecom/ecom_admin/resource/uploads/ultratech-super-cement-0-GPwIj.jpg&quot;); background-repeat: no-repeat; background-position: center top; background-size: cover;">
+                            <div class="image_list" id="image_item_1" style="background-image: url(&quot;http://localhost/venpep/sapiens_ecom/ecom_admin/resource/uploads/ultratech-super-cement-0-GPwIj.jpg&quot;); background-repeat: no-repeat; background-position: center top; background-size: cover;">
                                 <div class="image_check_box">
                                     <div class="custom-control-sm custom-radio">
                                         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
@@ -572,7 +572,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="image_list" id="image_item_1" style="background-image: url(&quot;http://localhost/venpep/zupply_ecom/ecom_admin/resource/uploads/ultratech-super-cement-0-GPwIj.jpg&quot;); background-repeat: no-repeat; background-position: center top; background-size: cover;">
+                            <div class="image_list" id="image_item_1" style="background-image: url(&quot;http://localhost/venpep/sapiens_ecom/ecom_admin/resource/uploads/ultratech-super-cement-0-GPwIj.jpg&quot;); background-repeat: no-repeat; background-position: center top; background-size: cover;">
                                 <div class="image_check_box">
                                     <div class="custom-control-sm custom-radio">
                                         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
@@ -585,7 +585,7 @@
                     <div class="col-md-6">
                         <h6>Select Additional Image</h6>
                         <div id="variant_additional_image_wrap">
-                            <div class="image_list" id="image_item_1" style="background-image: url(&quot;http://localhost/venpep/zupply_ecom/ecom_admin/resource/uploads/ultratech-super-cement-0-GPwIj.jpg&quot;); background-repeat: no-repeat; background-position: center top; background-size: cover;">
+                            <div class="image_list" id="image_item_1" style="background-image: url(&quot;http://localhost/venpep/sapiens_ecom/ecom_admin/resource/uploads/ultratech-super-cement-0-GPwIj.jpg&quot;); background-repeat: no-repeat; background-position: center top; background-size: cover;">
                                 <div class="image_check_box">
                                     <div class="custom-control-sm custom-checkbox">
                                         <input type="checkbox" name="variant_additional" class="custom-control-input" id="customCheck1">

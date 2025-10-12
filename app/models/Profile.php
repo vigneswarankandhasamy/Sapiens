@@ -727,7 +727,7 @@ class Profile extends Model
 						{
 							$vendor_id = $product_price['vendor_id'];
 						} else {
-							$vendor_id = "zupply";
+							$vendor_id = "Sapiens";
 						}
 
 
@@ -743,7 +743,7 @@ class Profile extends Model
 						}
 
 						$variant_name = (($list['variant_id'])?   "-".$list['variant_name']   :   ""   );
-						$vendor_name  = (($list['vendor_id'])?   "Sold By : ".$list['company']   :  "Zupply"   );
+						$vendor_name  = (($list['vendor_id'])?   "Sold By : ".$list['company']   :  "Sapiens"   );
 
 			            $product_price = $this->getProductPrice($list['id'],$variant);
 
@@ -1519,7 +1519,7 @@ class Profile extends Model
 					$product_image = $list['product_image']!='' ? SRCIMG.$list['product_image'] : ASSETS_PATH."no_img.jpg" ;
 				}
 				$product_name = $this->publishContent($list['product_name']);
-				$company_name = ($list['company']!="") ? $list['company'] : 'Zupply';
+				$company_name = ($list['company']!="") ? $list['company'] : 'Sapiens';
 
 				$layout .="
 						<div class='row status'>
@@ -1746,7 +1746,7 @@ class Profile extends Model
 
 	    				$admin_replay = "<div class='comment_text admin_replay_box_myorder'>
 											<div class='reviews_meta '>
-												<p><strong>Zupply </strong>- ". date("F j, Y", strtotime($list['replay_at']))."</p>
+												<p><strong>Sapiens </strong>- ". date("F j, Y", strtotime($list['replay_at']))."</p>
 												<span>".$list['admin_replay'] ."</span>
 											</div>
 										</div>";

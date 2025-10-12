@@ -1048,7 +1048,7 @@ class Order extends Model
                                                         <td class='text-left' colspan='6'>Commission & Charges :</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class='text-right' colspan='5'>Zupply Commission:</td>
+                                                        <td class='text-right' colspan='5'>Sapiens Commission:</td>
                                                         <td class='text-right'>₹ ".$this->inrFormat($order_item_info['vendorCommissionAmt'])."</td>
                                                     </tr>
                                                     <tr>
@@ -1216,7 +1216,7 @@ class Order extends Model
                                             <td class='text-left' colspan='6'>Commission & Charges :</td>
                                         </tr>
                                         <tr>
-                                            <td class='text-right' colspan='5'>Zupply Commission:</td>
+                                            <td class='text-right' colspan='5'>Sapiens Commission:</td>
                                             <td class='text-right'>₹ ".$this->inrFormat($ven_order_info['vendorCommissionAmt'])."</td>
                                         </tr>
                                         <tr>
@@ -1409,7 +1409,7 @@ class Order extends Model
                                           <span><em class='icon ni ni-mail'></em> ".$vendor_detais['email']."</span><br>
                                           <span><em class='icon ni ni-mobile'></em> ".$vendor_detais['mobile']."</span>" ;
                     } else {
-                        $vendor_info = "<span class='tb-lead'>Zupply<span class='dot dot-success d-md-none ml-1'></span></span>" ;
+                        $vendor_info = "<span class='tb-lead'>Sapiens<span class='dot dot-success d-md-none ml-1'></span></span>" ;
                     }
 
                     $layout .="
@@ -2842,7 +2842,7 @@ class Order extends Model
                             <td style="text-align: right;border-top: 1px solid #222;">Rs. '.number_format($list["totalAmount"],2).'</td>
                         </tr>
                         <tr style="background: #F5F5F5;">
-                            <td colspan="6" style="text-align: right;"><strong>Zupply Commission </strong> <br>  ('.$list['vendor_commission'].' % Commission + '.$list['vendor_commission_tax'].' % Tax) </td>
+                            <td colspan="6" style="text-align: right;"><strong>Sapiens Commission </strong> <br>  ('.$list['vendor_commission'].' % Commission + '.$list['vendor_commission_tax'].' % Tax) </td>
                             <td style="text-align: right;">Rs. '.number_format($list['totalCommission'],2).'<br> ('.$this->inrFormat($commission_wo_tax).' + '.$this->inrFormat($list['vendor_commission_tax_amt']).') </td>
                         </tr>
 
@@ -3738,7 +3738,7 @@ class Order extends Model
 					$cat_tax_info   = $this->getDetails(TAX_CLASSES_TBL,"*","id='".$cat_info['vendor_commission_tax']."' ");
 				}
 
-				// for Zupply Commission
+				// for Sapiens Commission
 
 				if($product_info['tax_type']=="inclusive") {
 					$vendor_cal_price = $tax_total;

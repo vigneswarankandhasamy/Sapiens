@@ -3256,7 +3256,7 @@
 	                            <td colspan="2" style="text-align: right;">Rs. '.$this->inrFormat($coupon_value_int,2).'</td>
 	                        </tr>
 	                        <tr style="background: #F5F5F5;">
-                                <td colspan="5" style="text-align: right;"><strong>Zupply Commission </strong> <br>  ('.$list['vendor_commission'].' % Commission + '.$list['vendor_commission_tax'].' % Tax) </td>
+                                <td colspan="5" style="text-align: right;"><strong>Sapiens Commission </strong> <br>  ('.$list['vendor_commission'].' % Commission + '.$list['vendor_commission_tax'].' % Tax) </td>
                                 <td colspan="2" style="text-align: right;">Rs. '.number_format($list['totalCommission'],2).'<br> ('.$this->inrFormat($commission_wo_tax).' + '.$this->inrFormat($list['vendor_commission_tax_amt']).') </td>
                             </tr>
 
@@ -3668,7 +3668,7 @@
 							<td style="text-align: right;border-top: 1px solid #222;">Rs. '.number_format($list["totalAmount"],2).'</td>
 			          	</tr>
 			          	<tr style="background: #F5F5F5;">
-							<td colspan="6" style="text-align: right;"><strong>Zupply Commission </strong> <br>  ('.$list['vendor_commission'].' % Commission + '.$list['vendor_commission_tax'].' % Tax) </td>
+							<td colspan="6" style="text-align: right;"><strong>Sapiens Commission </strong> <br>  ('.$list['vendor_commission'].' % Commission + '.$list['vendor_commission_tax'].' % Tax) </td>
 							<td style="text-align: right;">Rs. '.number_format($list['totalCommission'],2).'<br> ('.$this->inrFormat($commission_wo_tax).' + '.$this->inrFormat($list['vendor_commission_tax_amt']).') </td>
 			         	</tr>
 

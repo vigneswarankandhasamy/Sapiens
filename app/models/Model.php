@@ -860,7 +860,7 @@ class Model
 				                                    <p style='font-family:sans-serif;font-size:22px;font-weight:bold;text-transform:none;margin-top:0;margin-bottom:10px;color:#464951;text-align:left;'>
 				                                        Dear ".$name.",
 				                                    </p>
-				                                    <p style='font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;color:#464951;text-align:left;'>Click the Forgot password button to reset your Zupply password for your account. If you didn't ask to reset your password, you can ignore this email.
+				                                    <p style='font-family:sans-serif;font-size:14px;font-weight:normal;text-transform:none;margin-top:0;margin-bottom:20px;color:#464951;text-align:left;'>Click the Forgot password button to reset your Sapiens password for your account. If you didn't ask to reset your password, you can ignore this email.
 				                                    </p>
 				                                </td>
 				                            </tr>
@@ -1683,7 +1683,7 @@ class Model
 				                                            <td style='border-bottom:2px solid #ccc;white-space: nowrap;'>Rs. ".number_format($vendor_order_info['totalAMT']+$info['shipping_cost']-$info['coupon_value'],2) ." </strong> </td>
 				                                        </tr>
 				                                         <tr  style='padding: 25px 0px;'>
-				                                            <td style='border-bottom:2px solid #ccc' colspan='2'><strong>Zupply Commission & Charges</strong></td>
+				                                            <td style='border-bottom:2px solid #ccc' colspan='2'><strong>Sapiens Commission & Charges</strong></td>
 				                                            <td style='border-bottom:2px solid #ccc'></td>
 				                                            <td style='border-bottom:2px solid #ccc'></td>
 				                                            <td style='border-bottom:2px solid #ccc'></td>
@@ -1692,7 +1692,7 @@ class Model
 				                                            <td ></td>
 				                                            <td ></td>
 				                                            <td ></td>
-				                                            <td style='border-bottom:2px solid #ccc'><strong>Zupply Commission:</strong></td>
+				                                            <td style='border-bottom:2px solid #ccc'><strong>Sapiens Commission:</strong></td>
 				                                            <td style='border-bottom:2px solid #ccc;white-space: nowrap;'>Rs. ".number_format($vendor_order_info['vendorCommissionAmt'],2)." </strong> </td>
 				                                        </tr>
 				                                         <tr align='right' style='padding: 25px 0px;'>
@@ -2356,7 +2356,7 @@ class Model
 					<tr style="color: black;"> 
 						<td><h3>Tax invoice/Bill of Supply/Cash memo</h3>
 						Invoice Number: '.$order_item_info['vendor_invoice_number'].' / Date: '.date('d-m-Y', strtotime($order_info['created_at'])).'</td>
-						<td align="right">Zupply Order Id: '.$order_info['order_uid'].'</td>
+						<td align="right">Sapiens Order Id: '.$order_info['order_uid'].'</td>
 					</tr>
 				</tbody>
 			</table>

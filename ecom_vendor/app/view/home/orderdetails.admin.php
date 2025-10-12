@@ -141,7 +141,7 @@
                                     <ul class="data-list is-compact">
                                         <li class="data-item">
                                             <div class="data-col">
-                                                <div class="data-label">Zupply Invoice Number</div>
+                                                <div class="data-label">Sapiens Invoice Number</div>
                                                 <div class="data-value"><?php echo $data['order_info']['order_uid']; ?></div>
                                             </div>
                                         </li>
@@ -237,7 +237,7 @@
                                                     <td class="text-left" colspan="5">Commission & Charges :</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-right" colspan="5">Zupply Commission:</td>
+                                                    <td class="text-right" colspan="5">Sapiens Commission:</td>
                                                     <td class="text-right">₹ <?php echo number_format($data['ven_order_info']['vendorCommissionAmt'],2) ?></td>
                                                 </tr>
                                                 <tr>

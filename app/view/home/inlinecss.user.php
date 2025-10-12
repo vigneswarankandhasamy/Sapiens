@@ -324,7 +324,7 @@
         <div class="lable" >CUSTOMER ACKNOWLEDGEMENT:</div>
         <div class="notice">I  <?php  echo  $data['cus_info']['name'];  ?> confirm that the said products are being purchased for my internal/personal consumption and not for re-sale.</div>
       </div>
-      <div class="lable bottom_lab">Zupply Order Id : <?php echo $data['order_info']['order_uid'] ?></div>
+      <div class="lable bottom_lab">Sapiens Order Id : <?php echo $data['order_info']['order_uid'] ?></div>
 
      
 

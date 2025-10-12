@@ -1,6 +1,6 @@
 <?php
 
-//http://localhost/venpep/zupply_ecom/myaccount/previewinvoice/5
+//http://localhost/venpep/sapiens_ecom/myaccount/previewinvoice/5
 
 class Myaccount	 extends Controller
 {

@@ -95,7 +95,7 @@
                                     <div class="card-inner">
                                         <div class="nk-iv-wg2">
                                             <div class="nk-iv-wg2-title">
-                                                <h6 class="title">Zupply Commission 
+                                                <h6 class="title">Sapiens Commission 
                                                     <em class="icon ni ni-info" data-toggle="tooltip" data-placement="left" title="Revenue from subscription"></em>
                                                 </h6>
                                             </div>

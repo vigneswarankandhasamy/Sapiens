@@ -1,7 +1,7 @@
 Options -MultiViews
 RewriteEngine On
 
-RewriteBase /venpep/zupply_ecom/ecom_vendor/
+RewriteBase /venpep/sapiens_ecom/ecom_vendor/
 
 RewriteCond %{REQUEST_FILE} !-d
 RewriteCond %{REQUEST_FILE} !-d

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Zupply - Buy Building and Construction Materials</title>
+    <title>Sapiens - Buy Building and Construction Materials</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -68,8 +68,8 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="about_content mt-4">
-                        <h1>Welcome to Zupply</h1>
-                        <p>Whenever you think of construction, think Zupply, for we have all your construction needs under one platform. Zupply India Private Limited based at Coimbatore, the Manchester of India, is an online platform that serves to quench the need for construction material. The main motive of the company would be to ensure transparency between the vendors and the service providers and to cut out middlemen. It acts as a medium of communication in the construction material niche connecting buyers with sellers and vice versa. The services catered by the platform are not just confined materialistically but also caters Architects, Designers, Contractors and Engineers based on the customers requirement. Though based out of the southern city – Coimbatore, Zupply promises to deliver diligent service around the country with easy transportation and seamless connectivity along with guaranteed returns.</p>
+                        <h1>Welcome to Sapiens</h1>
+                        <p>Whenever you think of construction, think Sapiens, for we have all your construction needs under one platform. Sapiens India Private Limited based at Coimbatore, the Manchester of India, is an online platform that serves to quench the need for construction material. The main motive of the company would be to ensure transparency between the vendors and the service providers and to cut out middlemen. It acts as a medium of communication in the construction material niche connecting buyers with sellers and vice versa. The services catered by the platform are not just confined materialistically but also caters Architects, Designers, Contractors and Engineers based on the customers requirement. Though based out of the southern city – Coimbatore, Sapiens promises to deliver diligent service around the country with easy transportation and seamless connectivity along with guaranteed returns.</p>
                         <a class="button" href="<?php echo BASEPATH ?>contact">Explore Now</a>
                     </div>                
                 </div>    

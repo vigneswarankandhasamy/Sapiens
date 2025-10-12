@@ -22,9 +22,9 @@
 </div>
 <section class="ls ms s-pt-xl-200 s-pt-lg-230 s-pt-md-190 s-pt-160 s-pb-xl-100 s-pb-lg-200 s-pb-md-160 s-pb-130 c-mb-30">
 <?php
-$sitename = "Zupply";
-$websiteaddress = "Zupply.com";
-$mailid = "Zupplyecom@zupply.com";
+$sitename = "Sapiens";
+$websiteaddress = "Sapiens.com";
+$mailid = "Sapiensecom@Sapiens.com";
 $country = "India";
 ?>
 <div class="container-fluid">

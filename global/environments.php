@@ -12,10 +12,10 @@
 			define("DB_SERVER", "localhost");
 			define("DB_USER", "root");
 			define("DB_PASSWORD", "");
-			define("DB_DATABASE", "zupply_ecom");
+			define("DB_DATABASE", "sapiens_ecom");
 
 			// Host Name
-	   		define('HOST_NAME', 'http://localhost/venpep/zupply_ecom/');
+	   		define('HOST_NAME', 'http://localhost/venpep/sapiens_ecom/');
 	   		// Site Mode
 	   		define('SITE_MODE', 'development'); 
 	   		// Send Email from the server
