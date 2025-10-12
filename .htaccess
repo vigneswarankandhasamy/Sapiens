@@ -1,7 +1,7 @@
 Options -MultiViews
 RewriteEngine On
 
-RewriteBase /venpep/Sapiens/
+RewriteBase /venpep/sapiens_ecom/
 
 RewriteCond %{REQUEST_FILE} !-d
 RewriteCond %{REQUEST_FILE} !-d

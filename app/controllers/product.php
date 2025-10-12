@@ -21,11 +21,11 @@ public function index($token="")
 
 	$min_price 		          = $user->getDetails(PRODUCT_TBL,"selling_price","1 ORDER BY selling_price ASC");
 	$max_price 		          = $user->getDetails(PRODUCT_TBL,"selling_price","1 ORDER BY selling_price DESC");
-	$vendor_min_price         = $user->getDetails(VENDOR_PRODUCTS_TBL,"selling_price","1 ORDER BY selling_price ASC");
+	// $vendor_min_price         = $user->getDetails(VENDOR_PRODUCTS_TBL,"selling_price","1 ORDER BY selling_price ASC");
 
-	if($min_price['selling_price'] > $vendor_min_price['selling_price'] ) {
-		$min_price['selling_price'] = $vendor_min_price['selling_price'];
-	}
+	// if($min_price['selling_price'] > $vendor_min_price['selling_price'] ) {
+	// 	$min_price['selling_price'] = $vendor_min_price['selling_price'];
+	// }
 
 	if(isset($_GET['price'])){
 		$get_price  		  = explode('-', $_GET['price']);

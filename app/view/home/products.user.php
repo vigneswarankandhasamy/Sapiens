@@ -24,8 +24,10 @@
 
                 <div class="filter-section">
                     <h3 class="filter-title">Customer Ratings</h3>
-                    <div class="filter-options">
-                        <?php echo $data['rating_filter'] ?> 
+                    <div id="rating_ecom_filter" class="ecom_filter_type visible">
+                        <div class="filter-options">
+                            <?php echo $data['rating_filter'] ?> 
+                        </div>
                     </div>
                 </div>
 
@@ -47,7 +49,8 @@
             <div class="products-section" style="padding: 12px !important;">
                 <div class="products-header">
                     <div class="results-count" id="resultsCount">
-                        Showing 1-12 of 148 products
+                        <!-- Showing 1-12 of 148 products -->
+                        <p>Showing <?php echo $data['list']['start_from'] ?>–<?php echo $data['list']['start_to'] ?> of <?php echo $data['list']['total_records'] ?> results</p>
                     </div>
                     <div class="sort-dropdown">
                         <select class="sort-select" name="orderby" id="sort_filter" data-token="<?php echo $data['token'] ?>">
@@ -58,208 +61,28 @@
 
                 <div class="products-grid">
                     <?php echo $data['list']['layout'] ?>
-                    
-                    <!-- <div class="product-card" >
-                        <div class="product-image min-img-card">
-                            <img src="<?php echo IMGPATH ?>/IMG_0283.jpg" alt="Slim Fit Dark Jeans" onclick="quickView(2)">
-                            <span class="product-badge">Popular</span>
-                            <div class="product-actions">
-                            <button class="action-btn wishlist-action" onclick="toggleWishlist(2)">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="action-btn quick-view" onclick="quickView(1)">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="product-info" onclick="quickView(2)">
-                            <h3 class="product-title">Slim Fit Dark Jeans</h3>
-                            <div class="product-price">
-                            <span class="current-price">$79.99</span>
-                            <span class="original-price">$99.99</span>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="product-card">
-                        <div class="product-image min-img-card">
-                            <img src="<?php echo IMGPATH ?>/IMG_0283.jpg" alt="Slim Fit Dark Jeans" onclick="quickView(2)">
-                            <span class="product-badge">Popular</span>
-                            <div class="product-actions">
-                            <button class="action-btn wishlist-action" onclick="toggleWishlist(2)">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="action-btn quick-view" onclick="quickView(1)">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="product-info" onclick="quickView(2)">
-                            <h3 class="product-title">Slim Fit Dark Jeans</h3>
-                            <div class="product-price">
-                            <span class="current-price">$79.99</span>
-                            <span class="original-price">$99.99</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image min-img-card">
-                            <img src="<?php echo IMGPATH ?>/IMG_0283.jpg" alt="Slim Fit Dark Jeans" onclick="quickView(2)">
-                            <span class="product-badge">Popular</span>
-                            <div class="product-actions">
-                            <button class="action-btn wishlist-action" onclick="toggleWishlist(2)">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="action-btn quick-view" onclick="quickView(1)">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="product-info" onclick="quickView(2)">
-                            <h3 class="product-title">Slim Fit Dark Jeans</h3>
-                            <div class="product-price">
-                            <span class="current-price">$79.99</span>
-                            <span class="original-price">$99.99</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="product-card">
-                        <div class="product-image min-img-card">
-                            <img src="<?php echo IMGPATH ?>/IMG_0283.jpg" alt="Slim Fit Dark Jeans" onclick="quickView(2)">
-                            <span class="product-badge">Popular</span>
-                            <div class="product-actions">
-                            <button class="action-btn wishlist-action" onclick="toggleWishlist(2)">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="action-btn quick-view" onclick="quickView(1)">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="product-info" onclick="quickView(2)">
-                            <h3 class="product-title">Slim Fit Dark Jeans</h3>
-                            <div class="product-price">
-                            <span class="current-price">$79.99</span>
-                            <span class="original-price">$99.99</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image min-img-card">
-                            <img src="<?php echo IMGPATH ?>/IMG_0283.jpg" alt="Slim Fit Dark Jeans" onclick="quickView(2)">
-                            <span class="product-badge">Popular</span>
-                            <div class="product-actions">
-                            <button class="action-btn wishlist-action" onclick="toggleWishlist(2)">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="action-btn quick-view" onclick="quickView(1)">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="product-info" onclick="quickView(2)">
-                            <h3 class="product-title">Slim Fit Dark Jeans</h3>
-                            <div class="product-price">
-                            <span class="current-price">$79.99</span>
-                            <span class="original-price">$99.99</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image min-img-card">
-                            <img src="<?php echo IMGPATH ?>/IMG_0283.jpg" alt="Slim Fit Dark Jeans" onclick="quickView(2)">
-                            <span class="product-badge">Popular</span>
-                            <div class="product-actions">
-                            <button class="action-btn wishlist-action" onclick="toggleWishlist(2)">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="action-btn quick-view" onclick="quickView(1)">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="product-info" onclick="quickView(2)">
-                            <h3 class="product-title">Slim Fit Dark Jeans</h3>
-                            <div class="product-price">
-                            <span class="current-price">$79.99</span>
-                            <span class="original-price">$99.99</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image min-img-card">
-                            <img src="<?php echo IMGPATH ?>/IMG_0283.jpg" alt="Slim Fit Dark Jeans" onclick="quickView(2)">
-                            <span class="product-badge">Popular</span>
-                            <div class="product-actions">
-                            <button class="action-btn wishlist-action" onclick="toggleWishlist(2)">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="action-btn quick-view" onclick="quickView(1)">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="product-info" onclick="quickView(2)">
-                            <h3 class="product-title">Slim Fit Dark Jeans</h3>
-                            <div class="product-price">
-                            <span class="current-price">$79.99</span>
-                            <span class="original-price">$99.99</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image min-img-card">
-                            <img src="<?php echo IMGPATH ?>/IMG_0283.jpg" alt="Slim Fit Dark Jeans" onclick="quickView(2)">
-                            <span class="product-badge">Popular</span>
-                            <div class="product-actions">
-                            <button class="action-btn wishlist-action" onclick="toggleWishlist(2)">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="action-btn quick-view" onclick="quickView(1)">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="product-info" onclick="quickView(2)">
-                            <h3 class="product-title">Slim Fit Dark Jeans</h3>
-                            <div class="product-price">
-                            <span class="current-price">$79.99</span>
-                            <span class="original-price">$99.99</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image min-img-card">
-                            <img src="<?php echo IMGPATH ?>/IMG_0283.jpg" alt="Slim Fit Dark Jeans" onclick="quickView(2)">
-                            <span class="product-badge">Popular</span>
-                            <div class="product-actions">
-                            <button class="action-btn wishlist-action" onclick="toggleWishlist(2)">
-                                <i class="fas fa-heart"></i>
-                            </button>
-                            <button class="action-btn quick-view" onclick="quickView(1)">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            </div>
-                        </div>
-                        <div class="product-info" onclick="quickView(2)">
-                            <h3 class="product-title">Slim Fit Dark Jeans</h3>
-                            <div class="product-price">
-                            <span class="current-price">$79.99</span>
-                            <span class="original-price">$99.99</span>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
 
-                <div class="pagination">
+
+
+                <?php if($data['count']!=0 && $data['count']!=1 ) {?>
+                    <div class="pagination-container">
+                        <div class="pagination">
+                            <ul>
+                                <li><a href="<?php echo $data['previous'] ?>" class="page-btn prev-btn">
+                                    <i class="fas fa-chevron-left"></i>
+                                </a></li>
+                                <?php echo $data['page'] ?>
+                                <li><a href="<?php echo $data['next'] ?>" class="page-btn next-btn">
+                                    <i class="fas fa-chevron-right"></i>
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <?php } ?>
+
+
+                <!-- <div class="pagination">
                     <button class="page-btn" onclick="changePage(-1)">
                         <i class="fas fa-chevron-left"></i>
                     </button>
@@ -271,7 +94,7 @@
                     <button class="page-btn" onclick="changePage(1)">
                         <i class="fas fa-chevron-right"></i>
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -281,6 +104,95 @@
     <?php require_once 'includes/bottom.php'; ?>
 
     <script type="text/javascript" src="<?php echo PLUGINS ?>filter/filter.js"></script>
+
+    <style>
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+    }
+    
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: nowrap;
+    }
+    
+    /* Override any existing pagination styles */
+    .pagination ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: nowrap;
+    }
+    
+    .pagination li {
+        margin: 0;
+    }
+    
+    .pagination li a {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #e0e0e0;
+        background: white;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+    }
+    
+    .pagination li a:hover {
+        border-color: #ccc;
+        background: #f8f8f8;
+    }
+    
+    .pagination li.current a {
+        background: #e74c3c;
+        border-color: #e74c3c;
+        color: white;
+    }
+    
+    .pagination li.current a:hover {
+        background: #c0392b;
+        border-color: #c0392b;
+    }
+    
+    .pagination li a.prev-btn,
+    .pagination li a.next-btn {
+        font-size: 12px;
+    }
+    
+    /* Dots/Ellipsis styling */
+    .pagination li.dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .pagination li.dots span {
+        font-size: 14px;
+        color: #666;
+        font-weight: bold;
+        line-height: 1;
+        vertical-align: middle;
+        display: inline-block;
+    }
+    </style>
 
     <script type="text/javascript">
 
@@ -488,6 +400,20 @@
     });
 
     
+    // Clear All Filters Function
+    function clearAllFilters() {
+        // Clear all filter checkboxes
+        $('.filter_option').prop('checked', false);
+        
+        // Clear price filter input
+        $('.amount').val('');
+        
+        // Clear sort dropdown to default
+        $('#sort_filter').val('');
+        
+        // Redirect to clean URL without any filter parameters
+        window.location.href = window.location.pathname;
+    }
         
     </script>
 
