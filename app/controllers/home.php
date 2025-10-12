@@ -181,6 +181,8 @@ class Home extends Controller
 			'page' 				=>  $user->productsPagination($page,"","",$page_link,$price_filter,$page_amount,$brands,$alter_searchh_key),
 			'location'    		=>  $user->getLocationList(),
 			'page_title'  		=>  COMPANY_NAME,
+			'min_price'			=>  $min_price['selling_price'],
+			'max_price'			=>  $max_price['selling_price'],
 		]);
 		
 	}

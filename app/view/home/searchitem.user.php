@@ -156,7 +156,7 @@
                     <div class="row shop_wrapper g-4">
                         <?php echo $data['list']['layout'] ?>                       
                     </div>
-                    <?php if($data['count']!=0 && $data['count']!=1 ) {?>
+                    <?php if($data['list']['total_records'] > 0 && $data['count'] > 1) {?>
                     <div class="shop_toolbar t_bottom">
                         <div class="pagination">
                             <ul>

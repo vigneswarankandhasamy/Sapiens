@@ -602,8 +602,6 @@ class Products extends Model
 		$layout 		= "";
   		$condition 		= "";
   		$total_products = "";
-		$vendor_ids     = ((count($_SESSION['vendors_at_this_location']) > 0 )? implode(',', array_map('intval',$_SESSION['vendors_at_this_location'])) : 0 ); 
-		
 
   		if($category=='main') {
 			$get_subcategories = $this->getSubCategoryList($cat_id);
@@ -611,10 +609,8 @@ class Products extends Model
   		}
   		
 		$q = "SELECT P.id,P.page_url,P.sku,P.has_variants,P.product_name,P.category_type,P.main_category_id,P.sub_category_id,P.tax_class,P.delete_status,P.is_draft,P.status,T.tax_class as taxClass ,C.category,C.page_url as cat_url ,W.fav_status,P.selling_price,P.actual_price,SC.subcategory,SC.page_url as sub_cat_url ,PV.id as p_variant_id,P.display_tag,P.display_tag_end_date,DT.display_tag as display_tag_title,DT.status as tag_status,
-				(SELECT selling_price FROM ".VENDOR_PRODUCTS_TBL." WHERE product_id=P.id AND PV.id='1'  ORDER BY id ASC LIMIT 1) as product_vendor_price,
 				(SELECT file_name FROM ".MEDIA_TBL." WHERE item_id=P.id AND item_type='product' AND delete_status=0 ORDER BY id ASC LIMIT 1) as product_image,
-				(SELECT file_name FROM ".MEDIA_TBL." WHERE item_id=P.id AND item_type='product' AND delete_status=0 ORDER BY id DESC LIMIT 1) as secondary_img,
-				(SELECT selling_price FROM ".VENDOR_PRODUCTS_TBL." WHERE product_id=P.id  AND stock >= min_qty AND status='1' AND vendor_id IN (" . $vendor_ids .") AND (variant_id='0' OR variant_id='1')  ORDER BY selling_price ASC LIMIT 1) as vendor_selling_price 
+				(SELECT file_name FROM ".MEDIA_TBL." WHERE item_id=P.id AND item_type='product' AND delete_status=0 ORDER BY id DESC LIMIT 1) as secondary_img
 			FROM ".PRODUCT_TBL." P 
 					LEFT JOIN ".TAX_CLASSES_TBL." T ON(P.tax_class=T.id) 
 					LEFT JOIN ".REVIEW_TBL." RT ON(RT.product_id=P.id)
@@ -658,103 +654,90 @@ class Products extends Model
 
 	 		    		$list     = $this->editPagePublish($row);
 
-	 		    		$vr_price = (($list['vendor_selling_price']!="")? $list['vendor_selling_price'] : $list['selling_price']  );
-
- 						if ($vr_price >= $from && $vr_price <= $to) {
- 							
- 							$wishlist_text 	 = (($list['fav_status']=="") ? "Add to wishlist" : "Remove from wishlist");
+ 						if ($list['selling_price'] >= $from && $list['selling_price'] <= $to) {
+					
+							$wishlist_text 	 = (($list['fav_status']=="") ? "Add to wishlist" : "Remove from wishlist");
 							$status 		 = (($list['fav_status']!="") ? "favourite_item" : "");
-	    					
-
-	    					// Get Product Price
-
-				            $variant    = "";
-				            $variant_id = "";
-
-				            if($list['has_variants']==1) {
+							
+		
+							// Get Product Price
+		
+							$variant    = "";
+							$variant_id = "";
+		
+							if($list['has_variants']==1) {
 								$variant  = $this->getDetails(PRODUCT_VARIANTS,"*"," product_id='".$list['id']."'  ORDER BY id ASC LIMIT 1 ");
 								$variant_id = $variant['id'];
 							}
-
-							$product_price = $this->getProductPrice($list['id'],$variant);
-
-							if(isset($product_price['vendor_id']))
-							{
-								$vendor_id = $product_price['vendor_id'];
-							} else {
-								$vendor_id = "Sapiens";
-							}
-
+		
+		
 							if(isset($_SESSION['user_session_id'])) {
-								$wishlist = "<li class='wishlist '><a href='".BASEPATH."login' class='addToWishList $status'   data-option='".$this->encryptData($list['id'])."' data-id='".$this->encryptData($list['id'])."' data-vendor_id='".$vendor_id."' data-variant_id='".$variant_id."' title='".$wishlist_text."'><span class='far fa-heart fill-heart'></span><i class='fas fa-heart without-fill d-none'></i></a></li>";
-
+								$wishlist = "<li class='wishlist '><a href='".BASEPATH."login' class='addToWishList $status'   data-option='".$this->encryptData($list['id'])."' data-id='".$this->encryptData($list['id'])."' data-variant_id='".$variant_id."' title='".$wishlist_text."'><span class='far fa-heart fill-heart'></span><i class='fas fa-heart without-fill d-none'></i></a></li>";
+		
 							}else{
 								$wishlist = "<li class='wishlist'><a href='".BASEPATH."login' title='Login to add Wishlist'><span class='far fa-heart fill-heart'></span><i class='fas fa-heart without-fill d-none'></i></a></li>";
 							}
-
-
-				            $cartInfo = $this->cartInfo();
-				            $cart_products = $cartInfo['cart_product_ids'];
-
-				            if(in_array($list['id'], $cart_products)) {
-				            	$add_to_cart ="Already in cart";
-				            } else {
-				            	$add_to_cart ="Add to Cart";
-				            }
-
-				            if($list['display_tag']!=0 && $list['display_tag_end_date'] && $list['tag_status']==1) {
+		
+		
+							$cartInfo = $this->cartInfo();
+							$cart_products = $cartInfo['cart_product_ids'];
+		
+							if(in_array($list['id'], $cart_products)) {
+								$add_to_cart ="Already in cart";
+							} else {
+								$add_to_cart ="Add to Cart";
+							}
+		
+							if($list['display_tag']!=0 && $list['display_tag_end_date'] && $list['tag_status']==1) {
 								$today    = date("Y-m-d");
 								$end_date = date("Y-m-d",strtotime($list['display_tag_end_date']));
 								if($end_date >= $today) {
-									$display_tag = "<div class='label_product display_tag'>
-											".$list['display_tag_title']."
-										</div>";
+									$display_tag = "<span class='product-badge'>".$list['display_tag_title']."</span>";
 								} else {
 									$display_tag = "";
 								}
 							} else {
 								$display_tag = "";
 							}
-
-				            $product_image    = $list['product_image']!='' ? SRCIMG.$list['product_image'] : ASSETS_PATH."no_img.jpg" ;
-
-				            $secondary_image   = $list['secondary_img']!='' ? SRCIMG.$list['secondary_img'] : ASSETS_PATH."no_img.jpg" ;
-
-			            	$product_category = $list['category_type']=="main" ? "<a href='".BASEPATH."product/category/".$list['cat_url']."'>".$list['category']."</a>" : "<a href='".BASEPATH."product/subcategory/".$list['sub_cat_url']."'>".$list['subcategory']."</a>" ;
-		 		    		$layout .= "
-		 		    		 	<div class='col-lg-4 col-xl-3 col-md-6 col-12'>
-		                            <div class='single_product single_product_list_width_hight' >
-		                                <div class='product_name grid_name'>
-		                                    <h3><a href='".BASEPATH."product/details/".$list['page_url']."' title='".$list['product_name']."'>".$list['product_name']."</a></h3>
-		                                    <p class='manufacture_product'>$product_category</p>
-		                                </div>
-		                                <div class='product_thumb'>
-		                                    <a class='primary_img product_wish_list_img' href='".BASEPATH."product/details/".$list['page_url']."'><img src='".$product_image."' alt='".$list['product_name']."' title='".$list['product_name']."'></a>
-		                                    <a class='secondary_img product_wish_list_img' href='".BASEPATH."product/details/".$list['page_url']."'><img src='".$secondary_image."' alt='".$list['product_name']."' title='".$list['product_name']."'></a>
-		                                    ".$display_tag."
-		                                </div>	                                    
-										<div class='action_links'>
-											<ul>
-												".$wishlist."
-											</ul>
+		
+							$product_price = $this->getProductPrice($list['id'],$variant);
+							
+							$product_image     = $list['product_image']!='' ? SRCIMG.$list['product_image'] : ASSETS_PATH."no_img.jpg" ;
+		
+							$secondary_image   = $list['secondary_img']!='' ? SRCIMG.$list['secondary_img'] : ASSETS_PATH."no_img.jpg" ;
+		
+							$product_category = $list['category_type']=="main" ? "<a href='".BASEPATH."product/category/".$list['cat_url']."'>".$list['category']."</a>" : "<a href='".BASEPATH."product/subcategory/".$list['sub_cat_url']."'>".$list['subcategory']."</a>" ;
+							
+							// echo "<pre>";
+							// print_r($list);
+							// echo "</pre>";
+		
+							$layout .= "
+								<div class='product-card' style='display: block !important;'>
+									<a href='".BASEPATH."product/details/".$list['page_url']."'>
+									<div class='product-image min-img-card'>
+										<img src='".$product_image."' alt='".$list['product_name']."'>
+										".$display_tag."
+										<div class='product-actions'>
+										<button class='action-btn wishlist-action'>
+											<i class='fas fa-heart'></i>
+										</button>
+										<button class='action-btn quick-view'>
+											<i class='fas fa-shopping-cart'></i>
+										</button>
 										</div>
-		                                <div class='product_content grid_content'>
-		                                    <div class='content_inner'>
-		                                        <div class='product_footer d-flex align-items-center'>
-		                                            <div class='price_box'>
-		                                                <span class='current_price'>Rs.".number_format((($list['vendor_selling_price'])? $list['vendor_selling_price'] : $list['selling_price']))."</span>
-														<span class='old_price'>Rs.".number_format($list['actual_price'])."</span>
-		                                            </div>
-		                                            <div class='add_to_cart'>
-		                                                <a href='".BASEPATH."product/details/".$list['page_url']."' class='addToCart_pending' data-quantity='1'   data-option='".$this->encryptData($list['id'])."' title='".$add_to_cart."'><span class='lnr lnr-cart'></span></a>
-		                                            </div>
-		                                        </div>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                        </div>";
-		                    $i++;
- 						}
+									</div>
+									<div class='product-info'>
+										<h3 class='product-title'>".$list['product_name']."</h3>
+										<div class='product-price'>
+										<span class='current-price'>Rs.".$this->inrFormat($product_price['selling_price'])."</span>
+										<span class='original-price'>Rs.".$this->inrFormat($list['actual_price'])."</span>
+										</div>
+									</div>
+									</a>
+								</div>";
+							$i++;
+						}
 			    	}
 	 		    } else {
 					$layout = "<div class='cart_content '>No Records Found !!</div>";
@@ -797,13 +780,10 @@ class Products extends Model
 		$layout 		= "";
   		$condition 		= "";
   		$total_products = "";
-		$vendor_ids     = ((count($_SESSION['vendors_at_this_location']) > 0 )? implode(',', array_map('intval',$_SESSION['vendors_at_this_location'])) : 0 ); 
 
 		$q = "SELECT P.id,P.page_url,P.sku,P.has_variants,P.product_name,P.category_type,P.main_category_id,P.sub_category_id,P.tax_class,P.delete_status,P.is_draft,P.status,T.tax_class as taxClass ,C.category,C.page_url as cat_url ,W.fav_status,P.selling_price,P.actual_price,SC.subcategory,SC.page_url as sub_cat_url ,PV.id as p_variant_id,P.display_tag,P.display_tag_end_date,DT.display_tag as display_tag_title,DT.status as tag_status,
-			(SELECT selling_price FROM ".VENDOR_PRODUCTS_TBL." WHERE product_id=P.id AND PV.id='1'  ORDER BY id ASC LIMIT 1) as product_vendor_price,
 			(SELECT file_name FROM ".MEDIA_TBL." WHERE item_id=P.id AND item_type='product' AND delete_status=0 ORDER BY id ASC LIMIT 1) as product_image,
-			(SELECT file_name FROM ".MEDIA_TBL." WHERE item_id=P.id AND item_type='product' AND delete_status=0 ORDER BY id DESC LIMIT 1) as secondary_img,
-			(SELECT selling_price FROM ".VENDOR_PRODUCTS_TBL." WHERE product_id=P.id  AND stock >= min_qty AND status='1' AND vendor_id IN (" .$vendor_ids .") AND (variant_id='0' OR variant_id='1')  ORDER BY selling_price ASC LIMIT 1) as vendor_selling_price 
+			(SELECT file_name FROM ".MEDIA_TBL." WHERE item_id=P.id AND item_type='product' AND delete_status=0 ORDER BY id DESC LIMIT 1) as secondary_img 
 		FROM ".PRODUCT_TBL." P 
 				LEFT JOIN ".TAX_CLASSES_TBL." T ON(P.tax_class=T.id)
 				LEFT JOIN ".REVIEW_TBL." RT ON(RT.product_id=P.id) 
@@ -850,9 +830,7 @@ class Products extends Model
 
 	 		    		$list     = $this->editPagePublish($row);
 
-	 		    		$vr_price = (($list['vendor_selling_price']!="")? $list['vendor_selling_price'] : $list['selling_price']  );
-
- 						if ($vr_price >= $from && $vr_price <= $to) {
+ 						if ($list['selling_price'] >= $from && $list['selling_price'] <= $to) {
  							
  							$wishlist_text 	 = (($list['fav_status']=="") ? "Add to wishlist" : "Remove from wishlist");
 							$status 		 = (($list['fav_status']!="") ? "favourite_item" : "");
@@ -870,15 +848,8 @@ class Products extends Model
 
 							$product_price = $this->getProductPrice($list['id'],$variant);
 
-							if(isset($product_price['vendor_id']))
-							{
-								$vendor_id = $product_price['vendor_id'];
-							} else {
-								$vendor_id = "Sapiens";
-							}
-
 							if(isset($_SESSION['user_session_id'])) {
-								$wishlist = "<li class='wishlist '><a href='".BASEPATH."login' class='addToWishList $status'   data-option='".$this->encryptData($list['id'])."' data-id='".$this->encryptData($list['id'])."' data-vendor_id='".$vendor_id."' data-variant_id='".$variant_id."' title='".$wishlist_text."'><span class='far fa-heart fill-heart'></span><i class='fas fa-heart without-fill d-none'></i></a></li>";
+								$wishlist = "<li class='wishlist '><a href='".BASEPATH."login' class='addToWishList $status'   data-option='".$this->encryptData($list['id'])."' data-id='".$this->encryptData($list['id'])."' data-variant_id='".$variant_id."' title='".$wishlist_text."'><span class='far fa-heart fill-heart'></span><i class='fas fa-heart without-fill d-none'></i></a></li>";
 
 							}else{
 								$wishlist = "<li class='wishlist'><a href='".BASEPATH."login' title='Login to add Wishlist'><span class='far fa-heart fill-heart'></span><i class='fas fa-heart without-fill d-none'></i></a></li>";
@@ -898,9 +869,7 @@ class Products extends Model
 								$today    = date("Y-m-d");
 								$end_date = date("Y-m-d",strtotime($list['display_tag_end_date']));
 								if($end_date >= $today) {
-									$display_tag = "<div class='label_product display_tag'>
-											".$list['display_tag_title']."
-										</div>";
+									$display_tag = "<span class='product-badge'>".$list['display_tag_title']."</span>";
 								} else {
 									$display_tag = "";
 								}
@@ -914,37 +883,29 @@ class Products extends Model
 
 			            	$product_category = $list['category_type']=="main" ? "<a href='".BASEPATH."product/category/".$list['cat_url']."'>".$list['category']."</a>" : "<a href='".BASEPATH."product/subcategory/".$list['sub_cat_url']."'>".$list['subcategory']."</a>" ;
 		 		    		$layout .= "
-		 		    		 	<div class='col-lg-4 col-xl-3 col-md-6 col-12'>
-		                            <div class='single_product single_product_list_width_hight' >
-		                                <div class='product_name grid_name'>
-		                                    <h3><a href='".BASEPATH."product/details/".$list['page_url']."' title='".$list['product_name']."'>".$list['product_name']."</a></h3>
-		                                    <p class='manufacture_product'>$product_category</p>
-		                                </div>
-		                                <div class='product_thumb'>
-		                                    <a class='primary_img product_wish_list_img' href='".BASEPATH."product/details/".$list['page_url']."'><img src='".$product_image."' alt='".$list['product_name']."' title='".$list['product_name']."'></a>
-		                                	<a class='secondary_img product_wish_list_img' href='".BASEPATH."product/details/".$list['page_url']."'><img src='".$secondary_image."' alt='".$list['product_name']."' title='".$list['product_name']."'></a>
-		                                    ".$display_tag."
-		                                </div>	                                    
-										<div class='action_links'>
-											<ul>
-												".$wishlist."
-											</ul>
+		 		    		 	<div class='product-card' style='display: block !important;'>
+									<a href='".BASEPATH."product/details/".$list['page_url']."'>
+									<div class='product-image min-img-card'>
+										<img src='".$product_image."' alt='".$list['product_name']."'>
+										".$display_tag."
+										<div class='product-actions'>
+										<button class='action-btn wishlist-action'>
+											<i class='fas fa-heart'></i>
+										</button>
+										<button class='action-btn quick-view'>
+											<i class='fas fa-shopping-cart'></i>
+										</button>
 										</div>
-		                                <div class='product_content grid_content'>
-		                                    <div class='content_inner'>
-		                                        <div class='product_footer d-flex align-items-center'>
-		                                            <div class='price_box'>
-		                                                <span class='current_price'>Rs.".number_format((($list['vendor_selling_price'])? $list['vendor_selling_price'] : $list['selling_price']))."</span>
-														<span class='old_price'>Rs.".number_format($list['actual_price'])."</span>
-		                                            </div>
-		                                            <div class='add_to_cart'>
-		                                                <a href='".BASEPATH."product/details/".$list['page_url']."' class='addToCart_pending' data-quantity='1'   data-option='".$this->encryptData($list['id'])."' title='".$add_to_cart."'><span class='lnr lnr-cart'></span></a>
-		                                            </div>
-		                                        </div>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                        </div>";
+									</div>
+									<div class='product-info'>
+										<h3 class='product-title'>".$list['product_name']."</h3>
+										<div class='product-price'>
+										<span class='current-price'>Rs.".$this->inrFormat($product_price['selling_price'])."</span>
+										<span class='original-price'>Rs.".$this->inrFormat($list['actual_price'])."</span>
+										</div>
+									</div>
+									</a>
+								</div>";
 		                    $i++;
  						}
 			    	}

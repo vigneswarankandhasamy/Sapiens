@@ -2433,23 +2433,14 @@ class Model
 			$i = 1;
 			while ($row = mysqli_fetch_assoc($exe)) {
 				$list = $this->editPagePublish($row);
-				$layout .='<aside class="sidebar_widget">
-                      <div class="widget_inner">
-                          <div class="widget_list widget_filter">
-                              <h2 class="text-capitalize">'.$list['filter_group_name'].' </h2>
-                              <div id="'.$list['token'].'_ecom_filter" class="ecom_filter_type visible ">
-                                  <div class="filter_wrap ">
-                                      <div class="filter_list_wrap">
-                                          <ul class="filter_list " id="'.$list['token'].'-search">
-                                             '.$this->getFilterCheckbox($filter_array,$sub_category_id,$list).'
-                                          </ul>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>                          
+				$layout .='<div class="filter-section">
+                      <h3 class="filter-title">'.$list['filter_group_name'].'</h3>
+                      <div id="'.$list['token'].'_ecom_filter" class="ecom_filter_type visible">
+                          <div class="filter-options">
+                             '.$this->getFilterCheckbox($filter_array,$sub_category_id,$list).'
+                          </div>
                       </div>
-                  </aside>
-                  ';
+                  </div>';
 				$i++;
 			}
  		}
@@ -2473,9 +2464,10 @@ class Model
 			while ($row = mysqli_fetch_assoc($exe)) {				
 				$list = $this->editPagePublish($row);
 				$checked = in_array($list['filter_id'],$checked_array) ? "checked" : "";
-				$layout .='<li>
-						<label class="checkbox-inline checkbox-danger"><input data-filter-id="'.$group_info['token'].'" data-value="'.$list['filter_id'].'" class="filter_option styled" type="checkbox" '.$checked.'> '.$list['filter_value'].' </label>
-						</li>';
+				$layout .='<label class="filter-option">
+						<input data-filter-id="'.$group_info['token'].'" data-value="'.$list['filter_id'].'" class="filter_option" type="checkbox" '.$checked.'>
+						<span>'.$list['filter_value'].'</span>
+					</label>';
 				$i++;
 			}
  		}

@@ -1,236 +1,208 @@
 <?php require_once 'includes/top.php'; ?>
+    <!-- Backdrop (ensure only one exists on page) -->
+    <div class="nav-backdrop" id="navBackdrop"></div>
+    <!-- <div class="nav-backdrop"></div> -->
 
-    <!--Offcanvas menu area start-->
-    <div class="off_canvars_overlay"></div>
-    <div class="Offcanvas_menu d-block d-md-none d-lg-none">
-        <div class="container-fluid">
-            <div class="canvas_open p-0 border-0">
-                <span>Filter</span>
-                <a href="#"><i class="fa fs-4 fa-filter"></i></a>
-            </div>
-            <div class="Offcanvas_menu_wrapper">
-                <div class="canvas_close">
-                    <a href="#"><i class="ion-android-close"></i></a>
+    <div class="container shop-container">
+        <div class="shop-header">
+            <h1 class="shop-title" id="shopTitle"><?php echo $data['c_info']['category']; ?></h1>
+        </div>
+
+        <button class="mobile-filter-toggle" style="margin-left: 95px;width: 50%;text-align: center;" onclick="toggleMobileFilters()">
+            <i class="fas fa-filter"></i> Filters
+        </button>
+
+        <div class="shop-content">
+            <!-- Filters Sidebar -->
+            <div class="filters-sidebar" id="filtersSidebar">
+                <div class="filter-section">
+                    <h3 class="filter-title">Categories</h3>
+                    <div class="filter-options">
+                        <?php echo $data['category'] ?> 
+                    </div>
                 </div>
-                <div class="search-container">
-                    <form action="#" autocomplete="off" id="searchItems-mobile" method="POST" >
-                        <div class="search_box">
-                            <div class="autocomplete">
-                                <input id="searchitem-mobile" type="text" name="search_item" placeholder="Search entire store here ..." type="text" class="search_box_color">
-                                <button type="submit"><i class="ion-ios-search-strong"></i></button>
-                            </div>
-                            <div id="myInputautocomplete-mobile-list" class="autocomplete-items display_none" >
-                            </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Customer Ratings</h3>
+                    <div id="rating_ecom_filter" class="ecom_filter_type visible">
+                        <div class="filter-options">
+                            <?php echo $data['rating_filter'] ?> 
                         </div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Price Range</h3>
+                    <form class="clearfix"> 
+                        <div class="slider-range"></div>
+                        <input type="text" name="price" class="amount" />
+                        <button id="filter_Price">Filter</button>
                     </form>
                 </div>
-                <div>
-                    <aside class="sidebar_widget">
-                        <div class="widget_inner">
-                            <div class="widget_list widget_filter">
-                                <h2 class="text-capitalize">Filter by price</h2>
-                                <form class="clearfix"> 
-                                    <div class="slider-range"></div>
-                                    <input type="text" name="price" class="amount" />
-                                    <button  id="filter_Price">Filter</button>
-                                </form>
-                            </div>                          
-                        </div>
-                    </aside>
 
-                    <div class="widget_inner">
-                        <div class="widget_list widget_filter">
-                            <h2 class="text-capitalize">Brand </h2>
-                            <div id="brand_ecom_filter" class="ecom_filter_type visible ">
-                                <div class="filter_wrap ">
-                                    <div class="filter_list_wrap">
-                                        <ul class="filter_list " id="brand-search">
-                                            <?php echo $data['brands'] ?> 
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                          
-                    </div>
-
-                    <div class="widget_inner">
-                        <div class="widget_list widget_filter">
-                            <h2 class="text-capitalize">Customer Ratings</h2>
-                            <div id="rating_ecom_filter" class="ecom_filter_type visible ">
-                                <div class="filter_wrap ">
-                                    <div class="filter_list_wrap">
-                                        <ul class="filter_list " id="rating-search">
-                                            <?php echo $data['rating_filter'] ?> 
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                          
-                    </div>
-                    
-                    <aside class="sidebar_widget">
-                        <div class="widget_inner">
-                            <div class="widget_list widget_categories categories_list_widget">
-                                <h2 class="text-capitalize">categories</h2>
-                                <ul>
-                                <?php echo $data['category'] ?> 
-                                </ul>
-                            </div>                       
-                        </div>
-                    </aside>
-                </div>
+                <button class="clear-filters" onclick="clearAllFilters()">
+                    Clear All Filters
+                </button>
             </div>
-        </div>
-    </div>
-    <!--Offcanvas menu area end-->
 
-    <!--shop  area start-->
-    <div class="shop_area mt-10">
-        <div class="container-fluid">
-            <div class="row">     
-                <?php if($data['shop_category']!="" && 1!=1) { ?>           
-                <div class="col-lg-12">
-                    <div class="shop-listingbtn mb-3">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-12 category-top">
-                                    <?php echo $data['shop_category'] ?> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>                    
-                </div>
-                <?php } ?>
-                <div class="col-lg-3 col-md-3 d-none d-md-block d-lg-block">
-                    <div class="sticky-style">
-                    <!--sidebar widget start-->
-                        <aside class="sidebar_widget">
-                            <div class="widget_inner">
-                                <div class="widget_list widget_filter">
-                                    <h2 class="text-capitalize">Filter by price</h2>
-                                    <form class="clearfix"> 
-                                        <div class="slider-range"></div>
-                                        <input type="text" name="price" class="amount" />
-                                        <button  id="filter_Price">Filter</button>
-                                    </form>
-                                </div>                          
-                            </div>
-                        </aside>
-
-                        <div class="widget_inner">
-                            <div class="widget_list widget_filter">
-                                <h2 class="text-capitalize">Brand </h2>
-                                <div id="brand_ecom_filter" class="ecom_filter_type visible ">
-                                    <div class="filter_wrap ">
-                                        <div class="filter_list_wrap">
-                                            <ul class="filter_list " id="brand-search">
-                                                <?php echo $data['brands'] ?> 
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                          
-                        </div>
-
-                        <div class="widget_inner">
-                            <div class="widget_list widget_filter">
-                                <h2 class="text-capitalize">Customer Ratings</h2>
-                                <div id="rating_ecom_filter" class="ecom_filter_type visible ">
-                                    <div class="filter_wrap ">
-                                        <div class="filter_list_wrap">
-                                            <ul class="filter_list " id="rating-search">
-                                                <?php echo $data['rating_filter'] ?> 
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                          
-                        </div>
-                        
-                        <aside class="sidebar_widget">
-                            <div class="widget_inner">
-                                <div class="widget_list widget_categories categories_list_widget">
-                                    <h2 class="text-capitalize">categories</h2>
-                                    <ul>
-                                    <?php echo $data['category'] ?> 
-                                    </ul>
-                                </div>                       
-                            </div>
-                        </aside>
-                        <!--sidebar widget end-->
+            <!-- Products Section -->
+            <div class="products-section" style="padding: 12px !important;">
+                <div class="products-header">
+                    <div class="results-count" id="resultsCount">
+                        <!-- Showing 1-12 of 148 products -->
+                        <p>Showing <?php echo $data['list']['start_from'] ?>–<?php echo $data['list']['start_to'] ?> of <?php echo $data['list']['total_records'] ?> results</p>
                     </div>
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-12">
-                    <!--shop wrapper start-->
-                    
-                    <div class="shop_title">
-                        <h3><?php echo $data['c_info']['category']; ?></h3>
-                    </div>
-                    <!--banner area start-->
-                    <?php if($data['c_info']['file_name']!="") { ?>
-                        <div class="shop_banner mb-0">
-                            <img src="<?php echo $data['c_info']['file_name']!="" ? SRCIMG.$data['c_info']['file_name'] : IMGPATH."shop-banner.jpg" ?>" alt="image" class="common-banner">
-                        </div>
-                    <?php } ?>
-                    <!-- <?php if($data['page_banner']!="") { ?>
-                        <section class="banner_area mb-50">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="single_banner banner_fullwidth">
-                                            <div class="banner_thumb">
-                                                    <?php echo $data['page_banner'] ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    <?php } ?> -->
-                    <!--banner area end-->
-                    <div class="shop_toolbar_wrapper">
-                        <select class="niceselect_option" name="orderby" id="sort_filter" data-token="<?php echo $data['token'] ?>">
-                                <?php echo $data['sort_filter'] ?>
+                    <div class="sort-dropdown">
+                        <select class="sort-select" name="orderby" id="sort_filter" data-token="<?php echo $data['token'] ?>">
+                            <?php echo $data['sort_filter'] ?>
                         </select>
-                        <div class="page_amount">
-                            <p>Showing <?php echo $data['list']['start_from'] ?>–<?php echo $data['list']['start_to'] ?> of <?php echo $data['total_records'] ?> results</p>
-                        </div>
                     </div>
-                    <div class="row shop_wrapper g-4">
-                        <?php echo $data['list']['layout'] ?>                       
-                    </div>
-                    <?php if($data['page_count']!=0 && $data['page_count']!=1 ) {?>
-                    <div class="shop_toolbar t_bottom">
+                </div>
+
+                <div class="products-grid">
+                    <?php echo $data['list']['layout'] ?>
+                </div>
+
+
+
+                <?php if($data['total_records'] > 0 && $data['count']['total_pages'] > 1) {?>
+                    <div class="pagination-container">
                         <div class="pagination">
                             <ul>
-                                <li><a href="<?php echo $data['previous'] ?>"><<</a></li>
-                                    <?php echo $data['page'] ?>
-                                <li><a href="<?php echo $data['next'] ?>">>></a></li>
+                                <li><a href="<?php echo $data['previous'] ?>" class="page-btn prev-btn">
+                                    <i class="fas fa-chevron-left"></i>
+                                </a></li>
+                                <?php echo $data['page'] ?>
+                                <li><a href="<?php echo $data['next'] ?>" class="page-btn next-btn">
+                                    <i class="fas fa-chevron-right"></i>
+                                </a></li>
                             </ul>
                         </div>
                     </div>
-                    <?php } ?>
-                </div>
+                <?php } ?>
+
+
+                <!-- <div class="pagination">
+                    <button class="page-btn" onclick="changePage(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">4</button>
+                    <button class="page-btn">5</button>
+                    <button class="page-btn" onclick="changePage(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div> -->
             </div>
         </div>
     </div>
-    <!--shop  area end-->
+
 
     <!--call to action end-->
     <?php require_once 'includes/bottom.php'; ?>
 
     <script type="text/javascript" src="<?php echo PLUGINS ?>filter/filter.js"></script>
 
+    <style>
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+    }
+    
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: nowrap;
+    }
+    
+    /* Override any existing pagination styles */
+    .pagination ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: nowrap;
+    }
+    
+    .pagination li {
+        margin: 0;
+    }
+    
+    .pagination li a {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #e0e0e0;
+        background: white;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+    }
+    
+    .pagination li a:hover {
+        border-color: #ccc;
+        background: #f8f8f8;
+    }
+    
+    .pagination li.current a {
+        background: #e74c3c;
+        border-color: #e74c3c;
+        color: white;
+    }
+    
+    .pagination li.current a:hover {
+        background: #c0392b;
+        border-color: #c0392b;
+    }
+    
+    .pagination li a.prev-btn,
+    .pagination li a.next-btn {
+        font-size: 12px;
+    }
+    
+    /* Dots/Ellipsis styling */
+    .pagination li.dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .pagination li.dots span {
+        font-size: 14px;
+        color: #666;
+        font-weight: bold;
+        line-height: 1;
+        vertical-align: middle;
+        display: inline-block;
+    }
+    </style>
+
     <script type="text/javascript">
 
     $.urlParam = function(name){
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
         if (results==null) {
-           return null;
+         return null;
         }
         return decodeURI(results[1]) || 0;
     }
-
 
     // Brand filter Actions
 
@@ -238,7 +210,7 @@
         var url = "";
         var price_filter = $.urlParam('price');
         var page_number  = $.urlParam('p');
-        var sortby      = $.urlParam('sortby');
+        var sortby       = $.urlParam('sortby');
         var brands       = $.urlParam('brands');
 
         if (price_filter) {   
@@ -318,8 +290,7 @@
         return false;
     });
 
-
-     $(document).on("change", "#sort_filter", function() {
+    $(document).on("change", "#sort_filter", function() {
         var value = $(this).val();
         var token = $(this).data("token");
         window.location.href = "<?php echo BASEPATH ?>product/category/"+ token +value ;
@@ -397,7 +368,6 @@
       });
     });
 
-    // Add to wish List
 
     $('.addToWishList').click(function() {
         var id          = $(this).data("id");
@@ -420,15 +390,31 @@
                         $(".page_loading").hide();
                         data  = data.split("`");
                         if (data[0] == 1) {
-                            window.location = location.protocol + '//' + location.host + location.pathname + "?s=success";
+                            window.location = base_path + "product?s=success";
                         } else {
-                            window.location = location.protocol + '//' + location.host + location.pathname + "?r=success";
+                            window.location = base_path + "product?r=success";
                         }
                     }
                 });
         return false;
     });
 
+    
+    // Clear All Filters Function
+    function clearAllFilters() {
+        // Clear all filter checkboxes
+        $('.filter_option').prop('checked', false);
+        
+        // Clear price filter input
+        $('.amount').val('');
+        
+        // Clear sort dropdown to default
+        $('#sort_filter').val('');
+        
+        // Redirect to clean URL without any filter parameters
+        window.location.href = window.location.pathname;
+    }
+        
     </script>
 
     <?php if (isset($_GET['s'])): ?>

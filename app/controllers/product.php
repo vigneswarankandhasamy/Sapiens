@@ -311,8 +311,8 @@ public function category($token)
 			'next' 	       		=>  $next,
 			'count'	       		=>  $count,
 			'token'	       		=>  $token,
-			'min_price'			=>  $min_price,
-			'max_price' 		=>  $max_price,
+			'min_price'			=>  $min_price['selling_price'],
+			'max_price' 		=>  $max_price['selling_price'],
 			// 'page_banner'		=>  $user->getCategoryAndSubCategoryPageBanner($page_token=$token),
 			'location'      	=>  $user->getLocationList(),
 			'page' 				=>  $user->maincategoryPagination($page,$c_info['id'],"category",$page_link,$price_filter,$page_amount,$brands,$filter_array,$token),
@@ -489,6 +489,8 @@ public function subcategory($token)
 		'filter_list'		=>	$user->subcategoryFilter($filter_array,$c_info['id']),
 		'sort_filter'		=>	$user->subCategorySortingFilters($server,$page),
 		'page_title'  		=>  COMPANY_NAME,
+		'min_price'			=>  $min_price['selling_price'],
+		'max_price' 		=>  $max_price['selling_price'],
 		]);
 
 	} else {
@@ -623,6 +625,8 @@ public function brand($brand_token)
 			'location'      =>  $user->getLocationList(),
 			'page' 			=>  $user->productsPagination($page,$b_info['id'],"brand",$page_link,$price_filter,$page_amount),
 			'page_title'  	=>  COMPANY_NAME,
+			'min_price'		=>  $min_price['selling_price'],
+			'max_price' 	=>  $max_price['selling_price'],
 		]);
 	} else {
 		$user = $this->model('Front');

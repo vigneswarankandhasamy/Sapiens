@@ -65,7 +65,7 @@
 
 
 
-                <?php if($data['count']!=0 && $data['count']!=1 ) {?>
+                <?php if($data['list']['total_records'] > 0 && $data['count']['total_pages'] > 1) {?>
                     <div class="pagination-container">
                         <div class="pagination">
                             <ul>
