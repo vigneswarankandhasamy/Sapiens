@@ -164,29 +164,31 @@ class Profile extends Model
 				    }
 
 				    $layout .="
-				    <div class='col-lg-3 col-md-3 col-sm-12'>
-				        <div class='address_item $default'>
-				            <h4>".$this->publishContent($list['user_name'])."</h4>
-				            <p>
-				            	<i class='fas fa-map-marker-alt'></i>".$this->publishContent($list['address']).',
-				                '.$this->publishContent($list['landmark']). ', '.$list['area_name'].', '.$list['city'].', '.$list['state_name'].' -
-				                '.$list['pincode']."
-				            </p>
-				            <p>
-				            	<i class='fas fa-phone-alt'></i> Ph (+91) - ".$list['mobile']."
-				            </p>
-								".$gst_name_data." ".$gstin_number_data."	            
-				            <h2 class='delete_address' data-id='".$this->encryptData($list['id'])."'>
-				            	<a href='#'><i class='fas fa-trash-alt'></i></a>
-				            </h2>
-				            <h2 class='edit_address'><a href='#' class='editAddressPopup' data-option='".$this->encryptData($list['id'])."'>
-				            	<i class='fas fa-edit'></i></a>
-				            </h2>
-			            	<h4 class='make_default' data-id='".$this->encryptData($list['id'])."'>
-			            		<a href='javascript:void();'><i class='fas fa-check-circle'></i></a>
-			            	</h4>
-				            <span>".$address."</span>
+				    <div class='address-card'>
+				        <div class='address-name'>".$this->publishContent($list['user_name'])."</div>
+				        <div class='address-details'>
+				            <div class='address-text'>
+				                <i class='fas fa-map-marker-alt'></i>
+				                <span>".$this->publishContent($list['address']).', '.$this->publishContent($list['landmark']).', '.$list['area_name'].', '.$list['city'].', '.$list['state_name'].' - '.$list['pincode']."</span>
+				            </div>
+				            <div class='phone-text'>
+				                <i class='fas fa-phone-alt'></i>
+				                <span>Ph (+91) - ".$list['mobile']."</span>
+				            </div>
 				        </div>
+				        ".$gst_name_data." ".$gstin_number_data."
+				        <div class='card-actions'>
+				            <button class='action-btn delete-btn delete_address' data-id='".$this->encryptData($list['id'])."' title='Delete Address'>
+				                <i class='fas fa-trash-alt'></i>
+				            </button>
+				            <button class='action-btn edit-btn editAddressPopup' data-option='".$this->encryptData($list['id'])."' title='Edit Address'>
+				                <i class='fas fa-edit'></i>
+				            </button>
+				            <button class='action-btn default-btn make_default' data-id='".$this->encryptData($list['id'])."' title='Set as Default'>
+				                <i class='fas fa-check-circle'></i>
+				            </button>
+				        </div>
+				        ".($list['default_address'] == 1 ? "<div class='default-badge'>Default Address</div>" : "")."
 				    </div>";
 			    }
 	    	}
@@ -218,7 +220,7 @@ class Profile extends Model
 				$check_def_add = $this->check_query(CUSTOMER_ADDRESS_TBL,"default_address", "default_address='1' AND delete_status='0' AND user_id='".$user_id."' ");
 				$make_default  = ($check_def_add==0)? 1 : 0 ;
 				
-				$query = "INSERT INTO ".CUSTOMER_ADDRESS_TBL." SET 
+				echo $query = "INSERT INTO ".CUSTOMER_ADDRESS_TBL." SET 
 							token 			= '".$token."',
 							user_name 		= '".$data['name']."',
 							mobile 			= '".$data['mobile']."',
@@ -226,8 +228,6 @@ class Profile extends Model
 							landmark 		= '".$data['landmark']."',
 							city 			= '".$city['group_name']."',
 							city_id 		= '".$data['city']."',
-							area_name		= '".$location['location']."',
-							area_id 		= '".$data['location_area']."',
 							state_id 		= '".$data['state_id']."',
 							state_name 		= '".$state['name']."',
 							pincode 		= '".$data['pincode']."',
@@ -266,97 +266,121 @@ class Profile extends Model
 		$location_drp 		= $this->getLocationlistForAddress($info['city_id'],$info['area_id']);
 		$location_area 		= $this->getLocationArealist($info['city_id'],$info['area_id']);
 		$layout = '
-		 
-		 <div class="modal-body">
 			<input type="hidden" value="'.$_SESSION['edit_shipping_address_key'].'" name="fkey">
             <input type="hidden" value="'.$id.'" name="token" id="token">
-            <div class="row">
-            	<h4 class="form-label modal-title"> Address Details</h4>
-			    <div class="col-md-6">
-			        <div class="form-group address_model">
-			            <label for="name">Name :</label>
-			            <input type="text" name="name" id="name" value="'.$info["user_name"].'" class="form-control" placeholder="First name: *">
-			        </div>
-			    </div>
-			    <div class="col-md-6">
-			        <div class="form-group address_model">
-			            <label for="name">Mobile :</label>
-			            <input type="text" name="mobile" id="mobile" value="'.$info["mobile"].'" class="form-control" placeholder="Phone: *">
-			        </div>
-			    </div>
-			    <div class="col-md-12">
-			        <div class="form-group address_model">
-			            <label for="address">Address :</label>
-			            <textarea type="text" name="address" id="address" class="form-control" placeholder="Address: *">'.$info["address"].'</textarea>
-			        </div>
-			    </div>
-			    <div class="col-md-6">
-			        <div class="form-group address_model">
-			            <label for="landmark">Landmark :</label>
-			            <input type="text" name="landmark" id="landmark" value="'.$info["landmark"].'" class="form-control" placeholder="landmark: *">
-			        </div>
-			    </div>
-			    <div class="col-md-6">
-			    	<div class="form-group address_model">
-                        <label for="city">Select City <em>*</em></label><br>
-                        <div class="form-control-wrap">
-                            <select class="form-select" name="city" id="edit_city" data-search="on" readonly="readonly">
+            
+            <!-- Address Details Section -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h5>Address Details</h5>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name <span class="required">*</span></label>
+                            <input type="text" name="name" id="name" value="'.$info["user_name"].'" placeholder="Enter your full name" class="form-input">
+                            <div class="error-message" id="nameError"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="mobile" class="form-label">Mobile Number <span class="required">*</span></label>
+                            <input type="text" name="mobile" id="mobile" value="'.$info["mobile"].'" placeholder="Enter your mobile number" class="form-input" maxlength="10">
+                            <div class="error-message" id="mobileError"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address" class="form-label">Address <span class="required">*</span></label>
+                    <textarea name="address" id="address" class="form-input" placeholder="Enter your complete address" rows="3">'.$info["address"].'</textarea>
+                    <div class="error-message" id="addressError"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="landmark" class="form-label">Landmark <span class="required">*</span></label>
+                            <input type="text" name="landmark" id="landmark" value="'.$info["landmark"].'" placeholder="Enter landmark" class="form-input">
+                            <div class="error-message" id="landmarkError"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="city" class="form-label">Select City <span class="required">*</span></label>
+                            <select name="city" id="edit_city" class="form-select" readonly="readonly">
                                '.$location_drp['group_layout'].' 
                             </select>
+                            <div class="error-message" id="cityError"></div>
                         </div>
                     </div>
-			       
-			    </div>
-			    <input type="hidden" name="location_area" id="edit_location_area" value='.$info['area_id'].'>
-                <div class="col-md-12">
-                    <div class="form-group address_model Edit_Location_area_dropdown Edit_Location_area_dropdown ">
-                        <label for="city">Select Area <em>*</em></label><br>
-                        <div class="form-control-wrap">
-                            <select class="form-select edit_area_selected Edit_location_area_dropdown" name="area" id="edit_area_select" data-search="on" >
-                            	'.$location_area.'
+                </div>
+                
+                <input type="hidden" name="location_area" id="edit_location_area" value='.$info['area_id'].'>
+                <div class="form-group Edit_Location_area_dropdown">
+                    <label for="area" class="form-label">Select Area <span class="required">*</span></label>
+                    <select name="area" id="edit_area_select" class="form-select">
+                        '.$location_area.'
+                    </select>
+                    <div class="error-message" id="areaError"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="state_id" class="form-label">Select State <span class="required">*</span></label>
+                            <select name="state_id" id="edit_state_id" class="form-select">
+                                '.$location_group_drp.' 
                             </select>
+                            <div class="error-message" id="stateError"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="pincode" class="form-label">Pincode <span class="required">*</span></label>
+                            <input type="text" name="pincode" id="edit_pincode" value="'.$info["pincode"].'" placeholder="Pincode" class="form-input" readonly="readonly">
+                            <div class="error-message" id="pincodeError"></div>
                         </div>
                     </div>
                 </div>
-
-			    <div class="col-md-6">
-			        <div class="form-group address_model">
-						<label for="city">Select State <em>*</em></label><br>
-						<div class="form-control-wrap">
-							<select class="form-select edit_state_dropdwn" name="state_id" id="edit_state_id" data-search="on">
-								'.$location_group_drp.' 
-							</select>
-						</div>
-					</div>
-			    </div>
-			    <div class="col-md-6">
-			        <div class="form-group address_model">
-			            <label for="pincode">Pincode :</label>
-			            <input type="text" name="pincode" required id="edit_pincode" value="'.$info["pincode"].'" class="form-control address_from_pincode_field_bc_color" placeholder="pincode: *" readonly="readonly" >
-			        </div>
-			    </div>
-
-			    <h4 class="form-label modal-title gst_details_margin" > GST Details</h4>
-                <div class="col-md-6">
-                    <div class="form-group address_model" >
-                        <label for="city">GST Name
-                        </label>
-                        <br>
-                        <input type="text" name="gst_name" id="gst_name" class="form-control" value="'.$info["gst_name"].'" placeholder="GST Name" >
+            </div>
+            
+            <!-- GST Details Section -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h5>GST Details (Optional)</h5>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="gst_name" class="form-label">GST Name</label>
+                            <input type="text" name="gst_name" id="gst_name" value="'.$info["gst_name"].'" placeholder="Enter GST name" class="form-input">
+                            <div class="error-message" id="gstNameError"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="gstin_number" class="form-label">GSTIN Number</label>
+                            <input type="text" name="gstin_number" id="gstin_number" value="'.$info["gstin_number"].'" placeholder="Enter GSTIN number" class="form-input">
+                            <div class="error-message" id="gstinNumberError"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-               		<div class="form-group address_model" >
-               		    <label for="city">GSTIN Number 
-               		    </label>
-               		    <br>
-               		    <input type="text" name="gstin_number" id="gstin_number" class="form-control" value="'.$info["gstin_number"].'" placeholder="GSTIN Number" >
-               		</div>
-                </div>
-				<button type="submit" class="btn btn-hero mx-auto w-50 mt-3 rounded-pill">Submit</button>
-
-			   </div>
-		</div>			
+            </div>
+            
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="window.hideModal(\'editAddressModal\')">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-save"></i> Update Address
+                </button>
+            </div>
 			';
 		return $layout;
 	}
@@ -393,8 +417,6 @@ class Profile extends Model
 							landmark		= '".$data['landmark']."',
 							city 			= '".$city['group_name']."',
 							city_id 		= '".$data['city']."',
-							area_name		= '".$location['location']."',
-							area_id 		= '".$data['location_area']."',
 							state_id 		= '".$data['state_id']."',
 							state_name 		= '".$state['name']."',
 							pincode 		= '".$data['pincode']."',
@@ -753,46 +775,40 @@ class Profile extends Model
 
 			            $product_category = $list['category_type']=="main" ? "<a href='".BASEPATH."product/category/".$list['cat_url']."'>".$list['category']."</a>" : "<a href='".BASEPATH."product/subcategory/".$list['sub_cat_url']."'>".$list['subcategory']."</a>" ;
 	 		    		$layout .= "
-							<div class='col-lg-4 col-md-4 col-12'>
-							    <div class='single_product'>
-							        <div class='product_name grid_name'>
-							            <h3><a href='".BASEPATH."product/details/".$list['page_url']."' title='".$list['product_name']." ".$variant_name."'>".$list['product_name']." ".$variant_name."</a></h3>
-							            <p class='manufacture_product'>".$product_category."<a>".$vendor_name."</a> </p>
-							        </div>
-							        <div class='product_thumb'>
-							            <a class='primary_img' href='".BASEPATH."product/details/".$list['page_url']."'><img src='".$product_image."' alt='".$list['product_name']."' class='product_wish_list_img' title='".$list['product_name']." ".$variant_name."'></a>
-
-							            <a class='secondary_img' href='".BASEPATH."product/details/".$list['page_url']."'><img src='".$secondary_image."' alt='".$list['product_name']."' class='product_wish_list_img' title='".$list['product_name']."'></a>
-    									".$display_tag."
-
-							        </div>							            
-									<div class='action_links'>
-										<ul>										
-											".$wishlist."
-										</ul>
+							<div class='product-card' style='display: block !important;'>
+								<a href='".BASEPATH."product/details/".$list['page_url']."'>
+								<div class='product-image min-img-card'>
+									<img src='".$product_image."' alt='".$list['product_name']."'>
+									".$display_tag."
+									<div class='product-actions'>
+									<button class='action-btn wishlist-action'>
+										<i class='fas fa-heart'></i>
+									</button>
+									<button class='action-btn quick-view'>
+										<i class='fas fa-shopping-cart'></i>
+									</button>
 									</div>
-							        <div class='product_content grid_content'>
-							            <div class='content_inner'>
-							                <div class='product_footer d-flex align-items-center'>
-							                    <div class='price_box'>
-							                        <span class='current_price'>RS. ".$this->inrFormat($product_price_w)."</span>
-													<span class='old_price'>RS. ".$this->inrFormat($list['actual_price'])."</span>
-							                    </div>
-							                    <div class='add_to_cart'>
-							                        <a href='".BASEPATH."product/details/".$list['page_url']."' class='addToCart_pending' data-quantity='1'  data-option='".$this->encryptData($list['id'])."' title='".$add_to_cart."'><span class='lnr lnr-cart'></span></a>
-							                    </div>
-							                </div>
-							            </div>
-							        </div>
-							    </div>
+								</div>
+								<div class='product-info'>
+									<h3 class='product-title'>".$list['product_name']."</h3>
+									<div class='product-price'>
+									<span class='current-price'>Rs.".$this->inrFormat($product_price['selling_price'])."</span>
+									<span class='original-price'>Rs.".$this->inrFormat($list['actual_price'])."</span>
+									</div>
+								</div>
+								</a>
 							</div>";
 	                    $i++;
 			    	}
 	 		    } else {
 	 		    	$layout .= "
-			 		    	<div class='fav_content'>
-				 		    	<p class='lh-sm'>	Welcome To Your Favourites! <br> </p>
-								Tap or click the  <span class='far fa-heart'></span><i class='fas fa-heart d-none'></i>  icon on any product, and it will show up here as one of your favourites.
+			 		    	<div class='empty-wishlist'>
+				 		    	<div class='empty-wishlist-icon'>
+				 		    	    <i class='fas fa-heart'></i>
+				 		    </div>
+				 		    <h3>Your Wishlist is Empty</h3>
+				 		    <p>Start adding products to your wishlist by clicking the heart icon on any product you love!</p>
+				 		    <a href='".BASEPATH."shop' class='btn-primary'>Start Shopping</a>
 							</div>";
 	 		    }
 	 	return $layout;

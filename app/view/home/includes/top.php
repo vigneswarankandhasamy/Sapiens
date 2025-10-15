@@ -111,10 +111,15 @@
                     <i class="fas fa-user"></i>
                     </button>
                     <ul class="dropdown-menu profile-menu" aria-labelledby="profileMenuButton" style="list-style:none;">
-                    <!-- <li><a href="<?php echo BASEPATH ?>login" class="dropdown-item login-link">Login</a></li> -->
-                    <!-- <li><a href="signup.html" class="dropdown-item">Sign Up</a></li> -->
-                    <li><a href="account.html" class="dropdown-item account-link">Account Details</a></li>
-                    <li><a href="<?php echo BASEPATH ?>home/logout"" class="dropdown-item logout-link">Logout</a></li>
+                        <!-- <li><a href="<?php echo BASEPATH ?>login" class="dropdown-item login-link">Login</a></li> -->
+                        <!-- <li><a href="signup.html" class="dropdown-item">Sign Up</a></li> -->
+                        <!-- <li><a href="account.html" class="dropdown-item account-link">Account Details</a></li>
+                        <li><a href="<?php echo BASEPATH ?>home/logout"" class="dropdown-item logout-link">Logout</a></li> -->
+                        <li><a href="<?php echo BASEPATH ?>myaccount/myorders" class="dropdown-item account-link">Your Orders</a></li>
+                        <li><a href="<?php echo BASEPATH ?>myaccount/edit" class="dropdown-item account-link">Login and Security</a></li>
+                        <li><a href="<?php echo BASEPATH ?>myaccount/manageaddress" class="dropdown-item account-link">Your Address</a></li>
+                        <li><a href="<?php echo BASEPATH ?>myaccount/wishlist" class="dropdown-item account-link">Your Wishlist</a></li>
+                        <li><a href="<?php echo BASEPATH ?>home/logout" class="dropdown-item logout-link">Logout</a></li>
                     </ul>
                 </div>
                 <?php }else{ ?>

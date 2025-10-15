@@ -18,38 +18,16 @@
     </div>
 </div>
 
-<div class="contact_area manageaddress">
+<div class="wishlist-container">
     <div class="container-lg">
-        <div class="row">
-           <!--  <div class="col-lg-3 col-md-3">
-                <div class="contact_message content">
-                    <ul class="edit-profile">
-                        <li><a href="<?php echo BASEPATH ?>myaccount/edit">My Profile</a>
-                        </li>
-                        <li ><a href="<?php echo BASEPATH ?>myaccount/changepassword">Change Password</a>
-                        </li>
-                        <li ><a href="<?php echo BASEPATH ?>myaccount/manageaddress">Manage Address</a>
-                        </li>
-                        <li><a href="<?php echo BASEPATH ?>myaccount/myorders">My Orders</a>
-                        </li>
-                        <li class="active"><a href="<?php echo BASEPATH ?>myaccount/wishlist">My Wishlist</a>
-                        </li>
-                        <li><a href="<?php echo BASEPATH ?>home/logout">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div> -->
-            <!--product items-->
-            <div class="col-md-12 col-xs-12">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="list_wrap">
-                              <div class="row">
-                                 <?php echo $data['list'] ?>     
-                            </div>
-                        </div>
-                    </div>
-                </div> 
+        <div class="wishlist-header">
+            <h1 class="page-title">My Wishlist</h1>
+            <p class="page-subtitle">Your favorite products saved for later</p>
+        </div>
+        
+        <div class="wishlist-content">
+            <div class="wishlist-grid">
+                <?php echo $data['list'] ?>     
             </div>
         </div>
     </div>
