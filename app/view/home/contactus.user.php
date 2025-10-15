@@ -30,31 +30,30 @@
             Please fill in all required fields correctly.
         </div>
 
-        <form id="contactForm">
-            <div class="ms-contact-row">
+        <form id="contactUsInfo" method="POST" action="#" autocomplete="off">
             <div class="ms-contact-group">
-                <label for="firstName" class="ms-contact-label">First Name *</label>
-                <input type="text" id="firstName" class="ms-contact-input" required />
-            </div>
-            <div class="ms-contact-group">
-                <label for="lastName" class="ms-contact-label">Last Name *</label>
-                <input type="text" id="lastName" class="ms-contact-input" required />
-            </div>
+                <label for="name" class="ms-contact-label">Name *</label>
+                <input type="text" name="name" class="ms-contact-input" />
             </div>
 
             <div class="ms-contact-group">
             <label for="email" class="ms-contact-label">Email Address *</label>
-            <input type="email" id="email" class="ms-contact-input" required />
+            <input type="email" name="email" class="ms-contact-input" />
+            </div>
+
+            <div class="ms-contact-group">
+            <label for="mobile" class="ms-contact-label">Phone Number *</label>
+            <input type="mobile" name="mobile" class="ms-contact-input" />
             </div>
 
             <div class="ms-contact-group">
             <label for="subject" class="ms-contact-label">Subject</label>
-            <input type="text" id="subject" class="ms-contact-input" />
+            <input type="text" name="subject" class="ms-contact-input" />
             </div>
 
             <div class="ms-contact-group">
             <label for="message" class="ms-contact-label">Message *</label>
-            <textarea id="message" rows="5" class="ms-contact-input" required></textarea>
+            <textarea name="message" rows="5" class="ms-contact-input"></textarea>
             </div>
 
             <button type="submit" class="ms-contact-button">Send Message</button>

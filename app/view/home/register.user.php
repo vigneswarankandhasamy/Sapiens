@@ -7,51 +7,34 @@
             
             <div id="messageContainer"></div>
             
-            <form id="signupForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" id="firstName" class="form-input" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" id="lastName" class="form-input" required>
-                    </div>
+            <form action="#" method="POST" id="register_form" accept-charset="utf-8">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" value="" name="name" class="form-input">
                 </div>
                 
                 <div class="form-group">
                     <label for="email" class="form-label">Email Address</label>
-                    <input type="email" id="email" class="form-input" required>
+                    <input type="email" id="email" value="" name="email" class="form-input">
                 </div>
                 
                 <div class="form-group">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" id="phone" class="form-input" required>
+                    <label for="mobile" class="form-label">Phone Number</label>
+                    <input type="text" id="mobile" value="" name="mobile" class="form-input">
                 </div>
                 
                 <div class="form-group">
                     <label for="password" class="form-label">Password</label>
                     <div class="password-input-container">
-                        <input type="password" id="password" class="form-input" required>
+                        <input type="password" id="password" value="" name="password" class="form-input">
                         <button type="button" class="password-toggle" onclick="togglePassword('password')">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
-                    <div id="passwordStrength" class="password-strength"></div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="confirmPassword" class="form-label">Confirm Password</label>
-                    <div class="password-input-container">
-                        <input type="password" id="confirmPassword" class="form-input" required>
-                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
                 </div>
                 
                 <div class="checkbox-group">
-                    <input type="checkbox" id="terms" required>
+                    <input type="checkbox" id="terms" value="1" name="terms" required>
                     <label for="terms">
                         I agree to the <a href="#" target="_blank">Terms of Service</a> and 
                         <a href="#" target="_blank">Privacy Policy</a>
@@ -59,13 +42,13 @@
                 </div>
                 
                 <div class="checkbox-group">
-                    <input type="checkbox" id="newsletter">
-                    <label for="newsletter">
+                    <input type="checkbox" id="subscribe_check" value="1" name="subscribe_check" checked="">
+                    <label for="subscribe_check">
                         Subscribe to our newsletter for updates and exclusive offers
                     </label>
                 </div>
                 
-                <button type="submit" class="auth-btn" id="signupBtn">
+                <button type="submit" class="auth-btn" id="register_btn">
                     Create Account
                 </button>
             </form>
@@ -90,6 +73,19 @@
     <?php require_once 'includes/bottom.php'; ?>
 
     <script type="text/javascript">
+        // Custom error placement for checkboxes
+        $.validator.setDefaults({
+            errorPlacement: function(error, element) {
+                if (element.is(":checkbox")) {
+                    // For checkboxes, place error after the checkbox group
+                    error.insertAfter(element.closest('.checkbox-group'));
+                } else {
+                    // For other elements, use default placement
+                    error.insertAfter(element);
+                }
+            }
+        });
+
         $("#register_form").validate({
             rules: {
                 name: {
@@ -108,7 +104,9 @@
                 password: {
                     required: true
                 },
-
+                terms: {
+                    required: true
+                }
             },
             messages: {
                 name: {
@@ -126,6 +124,9 @@
                 },
                 password: {
                     required: "Password cannot be empty"
+                },
+                terms: {
+                    required: "You must agree to the Terms of Service and Privacy Policy"
                 }
             },
             submitHandler: function (form) {
