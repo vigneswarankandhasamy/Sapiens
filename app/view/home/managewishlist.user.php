@@ -19,16 +19,19 @@
 </div>
 
 <div class="wishlist-container">
-    <div class="container-lg">
-        <div class="wishlist-header">
-            <h1 class="page-title">My Wishlist</h1>
-            <p class="page-subtitle">Your favorite products saved for later</p>
-        </div>
-        
+    <div class="container">
         <div class="wishlist-content">
-            <div class="wishlist-grid">
-                <?php echo $data['list'] ?>     
-            </div>
+            <?php 
+            if(empty($data['list'])) {
+                echo '<div class="empty-wishlist">
+                        <h3>Welcome To Your Favourites!</h3>
+                        <p>Tap or click the ❤️ icon on any product, and it will show up here as one of your favourites.</p>
+                        <a href="'.BASEPATH.'product" class="btn-continue-shopping">Continue Shopping</a>
+                      </div>';
+            } else {
+                echo '<div class="wishlist-grid">'.$data['list'].'</div>';
+            }
+            ?>     
         </div>
     </div>
 </div>

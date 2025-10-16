@@ -800,17 +800,7 @@ class Profile extends Model
 							</div>";
 	                    $i++;
 			    	}
-	 		    } else {
-	 		    	$layout .= "
-			 		    	<div class='empty-wishlist'>
-				 		    	<div class='empty-wishlist-icon'>
-				 		    	    <i class='fas fa-heart'></i>
-				 		    </div>
-				 		    <h3>Your Wishlist is Empty</h3>
-				 		    <p>Start adding products to your wishlist by clicking the heart icon on any product you love!</p>
-				 		    <a href='".BASEPATH."shop' class='btn-primary'>Start Shopping</a>
-							</div>";
-	 		    }
+	 		    } 
 	 	return $layout;
 		
 	}
